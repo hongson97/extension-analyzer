@@ -10,6 +10,7 @@ import sys
 import time, threading
 from functools import partial
 import socket   
+from collections import defaultdict
 
 cwd = os.path.abspath(os.path.dirname(sys.argv[0]))
 log_dns_path = cwd +r"\log\log_dns.txt"
@@ -32,17 +33,7 @@ collection_default = {
     "time": 0,
     "transaction": 0
 }
-res_default = {
-    "source_ip": "0",
-    "source_port": 0,
-    "dest_ip": "0",
-    "dest_port": 0,
-    "resolver": {
-        "domain": "",
-        "CNAME": [],
-        "IP": []
-    }
-}
+
 logger_dns = {}
 count = 0
 
@@ -99,7 +90,18 @@ def parse_dnspkt(idx,pkt):
             # dns DNSRR count (answer count)
             request_info = mycol.find_one({"transaction": dns.id,"request.dest_ip":ip.src})
             if(request_info is not None):
-                res = res_default
+                res_default = {
+                    "source_ip": "0",
+                    "source_port": 0,
+                    "dest_ip": "0",
+                    "dest_port": 0,
+                    "resolver": {
+                        "domain": "",
+                        "CNAME": [],
+                        "IP": []
+                    }
+                }
+                res = dict(res_default)
                 id_collection = request_info["_id"]
                 res["source_ip"] = ip.src
                 res["source_port"] = udp.sport
@@ -113,11 +115,9 @@ def parse_dnspkt(idx,pkt):
                     rdata = dnsrr.rdata
                     if(type(rdata) is bytes):
                         rdata = rdata.decode("ascii")
-                        res["resolver"].setdefault(
-                            "CNAME", []).append(str(rdata))
+                        res["resolver"]["CNAME"].append(str(rdata))
                     else:
-                        res["resolver"].setdefault(
-                            "IP", []).append(str(rdata))
+                        res["resolver"]["IP"].append(str(rdata))
                 try:
                     x = mycol.update_one({"_id":id_collection},{"$set":{"response":res}})
                     #print(x.modified_count)

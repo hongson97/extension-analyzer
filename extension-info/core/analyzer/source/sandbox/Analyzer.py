@@ -4,24 +4,31 @@ import pymongo
 import json
 from collections import Counter 
 from operator import itemgetter
-import os
-import sys
-cwd = os.path.abspath(os.path.dirname(sys.argv[0]))
-api_file = cwd +r"\api.json"
+import os	
+import sys	
+cwd = os.path.abspath(os.path.dirname(sys.argv[0]))	
+api_file = cwd +r"\api.json"	
 path_white_list_dns = cwd + r"\white_list_dns.json"
+
+
+def init_thesis(collection):
+    myclient = pymongo.MongoClient("mongodb://localhost:27017/")
+    mydb = myclient["Thesis"]
+    mycol = mydb[collection]
+    return mycol
+
 def init_database(collection):
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")
     mydb = myclient["ChromeExtension"]
     mycol = mydb[collection]
     return mycol
 
-
 mycol = init_database("API")
 
 # get behavior form file api.json define
 # Return json behavior 
 def GetBehaviorMalicious(behavior):
-    with open(api_file) as f:
+    with open(api_file) as f:	
         _behavior = json.load(f)
     return _behavior[behavior]
 
@@ -29,11 +36,11 @@ def GetApiCalledByExtension(idx):
     list_api_from_database = mycol.find({"extensionId": idx})
     return list_api_from_database
 
-def GetExtID(arg):
-    if arg.startswith('http://'):
-        arg = arg.replace('http://', 'https://')   #http -> https
-    if arg.startswith('https://'):
-        return (arg.split('/')[-1]).split('?')[0], arg.split("/")[-2]   #split ID, and extension name from link
+def GetExtID(arg):	
+    if arg.startswith('http://'):	
+        arg = arg.replace('http://', 'https://')   #http -> https	
+    if arg.startswith('https://'):	
+        return (arg.split('/')[-1]).split('?')[0], arg.split("/")[-2]   #split ID, and extension name from link	
 
 def UninstallBehaviorTracking(api_of_extension):
     _behavior_info = GetBehaviorMalicious("uninstall_other_extension")
@@ -329,7 +336,7 @@ def AnalyzerOnlyOneExtension(idx):
     beauty_report["dns_no_response"] = dns_no_response
     col = init_database("REPORT")
     col.insert(beauty_report,check_keys=False)
-    print("[+] Inserted @@@%s@@@" %(idx))
+    print("[+] Inserted ",idx)
 
 def AnalyzerAllExtension():
 # Doc tung report trong Database "REPORT" bang mycol.find
@@ -371,7 +378,6 @@ def AnalyzerAllExtension():
 
         if(len(ext["keylogging_functionality"]) != 0):
             count += 1
-            print(ext["id"])
             keylogging_functionality +=1
             behavior.append("keylogging_functionality")
             is_malicious = True
@@ -416,8 +422,9 @@ def AnalyzerAllExtension():
                 is_suspicious = True
 
         if(len(ext["dns_no_response"]) != 0):
+            #count += 1
             dns_no_response +=1
-            behavior.append("dns_no_response")
+            #behavior.append("dns_no_response")
 
 
         if(is_malicious):
@@ -429,7 +436,8 @@ def AnalyzerAllExtension():
         info["id"] = ext["id"]
         info["count"] = count
         info["behavior"] = behavior
-        top_10_extension_malicious.append(info)
+        datatest = info.copy()
+        top_10_extension_malicious.append(datatest)
 
         for api_name in ext["apis"]:
             if(api_name not in top_10_api_called):
@@ -455,7 +463,7 @@ def AnalyzerAllExtension():
     print("[*] Top 10 API Called:")
     print(top10)
     print("[*] Top 10 Extension:")
-    print(sorted(top_10_extension_malicious, key = lambda i: i['count'])[:10])
+    print(sorted(top_10_extension_malicious, key = lambda i: i['count'],reverse=True)[:10])
 
 if __name__ == "__main__": 
     AnalyzerAllExtension()

@@ -70,14 +70,11 @@ class AnalyzerService {
                 const outputData_report = await collection_report.findOne({ id: value });
                 const outputData_dns = await collection_dns.find({ idx: value }).toArray()
                 const outputData_network = await collection_network.findOne({ idx: value });
-                //console.log('outputData_report', outputData_report)
-                console.log('outputData_dns', (typeof outputData_dns))
-                    //console.log('outputData_network', outputData_network)
                 let outputData = {}
                 outputData.Report = outputData_report
                 outputData.Network = outputData_network
                 outputData.Dns = outputData_dns
-                console.log(outputData)
+                    //console.log(outputData)
                 client.close();
                 return { data: outputData }
             } catch (err) {

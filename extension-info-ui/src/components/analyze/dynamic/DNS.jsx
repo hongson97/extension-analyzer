@@ -22,15 +22,31 @@ class API extends Component {
             accessor:"time"
           },
           {
-            Header: 'Request',
+            Header: 'Client local',
             style: {'whiteSpace': 'unset'},
             accessor: "request.source"
           },
           {
-            Header: 'Response',
+            Header: 'Domain',
             style: {'whiteSpace': 'unset'},
-            accessor:"response.source_ip"
+            accessor: "request.qname"
           },
+          {
+            Header: 'DNS Server',
+            style: {'whiteSpace': 'unset'},
+            accessor:"response.source"
+          },
+          {
+            Header: 'CName',
+            style: {'whiteSpace': 'unset'},
+            accessor: "response.resolver.CNAME"
+          },
+          {
+            Header: 'IP Server',
+            style: {'whiteSpace': 'unset'},
+            accessor: "response.resolver.IP"
+          },
+          
         ]
       }
     }
@@ -43,16 +59,37 @@ class API extends Component {
     const apiData = Object.keys(rawApiData).map(i => {
       return Object.assign({}, {api: i}, rawApiData[i])
     })
+    console.log(apiData)
     const newApiData = apiData.map(item => {
+      if(typeof item.response === 'undefined')
+      {
+        return {
+          ...item,
+          request: {
+            ...item.request,
+            source: `${item.request.source_ip}:${item.request.source_port}`
+          },
+          response: {
+            ...item.response,
+               source: ``
+          }
+        }
+      }
       return {
         ...item,
         request: {
           ...item.request,
           source: `${item.request.source_ip}:${item.request.source_port}`
+        },
+        response: {
+          ...item.response,
+             source: `${item.response.source_ip}:${item.response.source_port}`
         }
       }
     })
-    console.log(newApiData)
+
+
+    
 
     return (
       <ReactTable
