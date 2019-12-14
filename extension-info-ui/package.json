@@ -1,0 +1,53 @@
+{
+  "name": "he-redux",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "ajv": "^6.10.2",
+    "axios": "^0.18.1",
+    "chart.js": "^2.8.0",
+    "codemirror": "^5.49.0",
+    "mongodb": "^3.3.5",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.2",
+    "react-chartjs-2": "^2.8.0",
+    "react-codemirror2": "^5.1.0",
+    "react-dom": "^16.10.2",
+    "react-highlight": "^0.12.0",
+    "react-modal": "^3.10.1",
+    "react-redux": "^5.1.2",
+    "react-router": "^3.2.4",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^4.0.8",
+    "react-scripts": "^3.2.0",
+    "react-select": "^2.4.4",
+    "react-table": "~6.8.6",
+    "react-toastify": "^4.5.2",
+    "redux": "^4.0.4",
+    "redux-thunk": "^2.3.0",
+    "socket.io-client": "^2.3.0",
+    "tsutils": "^3.17.1",
+    "typescript": "^3.6.4"
+  },
+  "scripts": {
+    "start": "set PORT=3000 && react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "redux-devtools-extension": "^2.13.8"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

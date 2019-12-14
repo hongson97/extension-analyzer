@@ -1,0 +1,181 @@
+{
+    "uninstall_other_extension": [{
+            "behavior": [
+                "management.getAll",
+                "management.uninstall"
+            ]
+        },
+        {
+            "message": "Potentially uninstall installed extensions"
+        },
+        {
+            "risk": "Malicious"
+        }
+    ],
+    "prevents_extension_uninstall": [{
+            "behavior": [{
+                    "apiCall": "tabs.remove",
+                    "argUrl": "chrome://extensions/"
+                },
+                {
+                    "apiCall": "tabs.update",
+                    "argUrl": "chrome://extensions/"
+                }
+            ]
+        },
+        {
+            "message": "Prevents extension uninstall (remove or update url to malicious url)"
+        },
+        {
+            "risk": "Malicious"
+        }
+    ],
+    "keylogging_functionality": [{
+            "behavior": [{
+                    "apiCall": "blinkAddEventListener",
+                    "args": [
+                        "#document",
+                        "keypress"
+                    ]
+                },
+                {
+                    "apiCall": "blinkAddEventListener",
+                    "args": [
+                        "#document",
+                        "keydown"
+                    ]
+                }
+            ]
+        },
+        {
+            "risk": "Malicious"
+        },
+        {
+            "message": "Contains keylogging functionality"
+        }
+    ],
+    "steal_information_form": [{
+            "message": " Steals password, email or information... from form"
+        },
+        {
+            "behavior": [{
+                    "apiCall": "blinkAddEventListener",
+                    "args": [
+                        "XMLHttpRequest",
+                        "*"
+                    ]
+                },
+                {
+                    "apiCall": "",
+                    "activityType": "content_script",
+                    "args": [
+                        "*"
+                    ]
+                },
+                {
+                    "apiCall": "blinkAddEventListener",
+                    "args": [
+                        "FORM",
+                        "submit"
+                    ]
+                }
+            ]
+        },
+        {
+            "risk": "Malicious"
+        }
+    ],
+    "block_antivirus_site": [{
+            "message": "Block or remove user goes antivires site"
+        },
+        {
+            "behavior": [{
+                "apiCall": "webRequest.onBeforeRequest",
+                "other": {
+                    "webRequest": "{\"cancel\":true}"
+                },
+                "args": [
+                    "facebook",
+                    "totaldefense",
+                    "ahnlab",
+                    "carbonblack",
+                    "guanjia",
+                    "webroot",
+                    "f-secure",
+                    "huorong",
+                    "rising",
+                    "kaspersky",
+                    "mcafee",
+                    "chilisecurity",
+                    "totalav",
+                    "trendmicro",
+                    "vipre",
+                    "appriver",
+                    "avira",
+                    "antiy",
+                    "avast",
+                    "drweb",
+                    "bullguard",
+                    "pcmatic",
+                    "norton",
+                    "cylance",
+                    "maxpcsecure",
+                    "guanjia",
+                    "eset",
+                    "faronics"
+                ]
+            }]
+        },
+        {
+            "risk": "Malicious"
+        }
+    ],
+    "deleted_response_headers": [{
+            "risk": "Malicious"
+        },
+        {
+            "message": " Injects security-related HTTP header"
+        },
+        {
+            "behavior": [{
+                "activityType": "web_request",
+                "apiCall": "webRequest.onHeadersReceived",
+                "other": {
+                    "webRequest": {
+                        "deleted_response_headers": [{
+                            "name": "x-frame-options",
+                            "value": "SAMEORIGIN"
+                        }]
+                    }
+                }
+            }]
+        }
+    ],
+    "injects_dynamic_javascript": [{
+            "risk": "Suspicious"
+        },
+        {
+            "message": " Injects dynamic JavaScript"
+        },
+        {
+            "behavior": [{
+                "activityType": "dom_access",
+                "apiCall": "blinkAddElement",
+                "args": ["https://", "http://", ".js"]
+            }]
+        }
+    ],
+    "get_all_cookies": [{
+            "risk": "Suspicious"
+        },
+        {
+            "message": " Get all cookies of browser"
+        },
+        {
+            "behavior": [{
+                "activityType": "api_call",
+                "apiCall": "cookies.getAll"
+            }]
+        }
+    ]
+}
