@@ -336,7 +336,7 @@ def AnalyzerOnlyOneExtension(idx):
     beauty_report["dns_no_response"] = dns_no_response
     col = init_database("REPORT")
     col.insert(beauty_report,check_keys=False)
-    print("[+] Inserted ",idx)
+    print("[+] Inserted: @@@%s@@@"%(idx))
 
 def AnalyzerAllExtension():
 # Doc tung report trong Database "REPORT" bang mycol.find
