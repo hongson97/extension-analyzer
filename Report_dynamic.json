@@ -1,0 +1,91 @@
+{
+    "Total": 4,
+    "Malicious": 1,
+    "Suspicious": 0,
+    "Clean": 3,
+    "top_10_api_called": {
+        "browserAction.setIcon": 915,
+        "blinkAddEventListener": 766,
+        "tabs.query": 639,
+        "runtime.onMessage": 621,
+        "blinkRequestResource": 577,
+        "runtime.sendMessage": 457,
+        "storage.get": 438,
+        "tabs.sendMessage": 354,
+        "Window.localStorage": 334,
+        "Storage.getItem": 326
+    },
+    "top_10_extension_malicious": [
+        {
+            "id": "pioclpoplcdbaefihamjohnefbikjilc",
+            "count": 1,
+            "behavior": [
+                "keylogging_functionality"
+            ]
+        },
+        {
+            "id": "laankejkbhbdhmipfmgcngdelahlfoji",
+            "count": 0,
+            "behavior": []
+        },
+        {
+            "id": "jmfikkaogpplgnfjmbjdpalkhclendgd",
+            "count": 0,
+            "behavior": []
+        },
+        {
+            "id": "edacconmaakjimmfgnblocblbcdcpbko",
+            "count": 0,
+            "behavior": []
+        }
+    ],
+    "top_behavior_sorted": [
+        {
+            "name": "keylogging_functionality",
+            "count": 1,
+            "extension": [
+                "pioclpoplcdbaefihamjohnefbikjilc"
+            ]
+        },
+        {
+            "name": "uninstall_other_extension",
+            "count": 0,
+            "extension": []
+        },
+        {
+            "name": "prevents_extension_uninstall",
+            "count": 0,
+            "extension": []
+        },
+        {
+            "name": "steal_information_form",
+            "count": 0,
+            "extension": []
+        },
+        {
+            "name": "block_antivirus_site",
+            "count": 0,
+            "extension": []
+        },
+        {
+            "name": "deleted_response_headers",
+            "count": 0,
+            "extension": []
+        },
+        {
+            "name": "injects_dynamic_javascript",
+            "count": 0,
+            "extension": []
+        },
+        {
+            "name": "get_all_cookies",
+            "count": 0,
+            "extension": []
+        },
+        {
+            "name": "http_request_4xx",
+            "count": 0,
+            "extension": []
+        }
+    ]
+}

@@ -34,7 +34,7 @@ class APICalled extends Component {
           {
             Header: 'Page Title',
             style: {'whiteSpace': 'unset'},
-            accessor: "args"
+            accessor: "pageTitle"
           },
           {
             Header: 'Page Url',
@@ -57,16 +57,27 @@ class APICalled extends Component {
     console.log(rawApiData.api_called)
     //console.log(rawApiData)
     
-    const apiData = Object.keys(rawApiData.api_called).map(i => {
-      return Object.assign({}, {api: i.api_called},   [i.api_called])
-    })
+    const newApiData = rawApiData.api_called.map(item => {
+        
+        if(typeof item.pageTitle === 'undefined')
+        {
+            console.log(item.pageTitle)
+            return {
+            ...item,
+            pageTitleEmpty: ``
+            }   
+        }
+        return {
+          ...item,
+        }
+      })
 
     console.log(rawApiData.api_called)
     return (
       <ReactTable
         showPagination={false}
-        defaultPageSize={rawApiData.api_called ? rawApiData.api_called.length : 5}
-        data={rawApiData.api_called}
+        defaultPageSize={newApiData ? newApiData.length : 5}
+        data={newApiData}
         columns={this.state.table.columns}
         />
     )
