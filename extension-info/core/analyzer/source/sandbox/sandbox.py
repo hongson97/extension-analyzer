@@ -85,7 +85,7 @@ def AnalyzerDynamic(mycol,IDX,PathExt):
     # Profile 
     # Load extension   
     # 
-    profile_path = os.getenv('LOCALAPPDATA') + r"\Google\Chrome\User Data\Profile 3"     
+    profile_path = os.getenv('LOCALAPPDATA') + r"\Google\Chrome\User Data\Profile 1"     
     options_chrome = webdriver.ChromeOptions()
     #unpacked_extension_path = extension_folder + "\\" + extension
     options_chrome.add_argument("--proxy-server={}".format(client.proxy))
