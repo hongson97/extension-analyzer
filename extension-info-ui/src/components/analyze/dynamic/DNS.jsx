@@ -4,7 +4,7 @@ import ReactTable from 'react-table'
 import Highlight from 'react-highlight'
 import '../../../../node_modules/highlight.js/styles/googlecode.css'
 
-class API extends Component {
+class DNS extends Component {
   constructor(props) {
     super(props)
 
@@ -55,10 +55,12 @@ class API extends Component {
   render() {
     const rawApiData = this.props.analyze.result_dynamic.result.Dns    //change this when have database
     console.log("rawApiData")
-    //console.log(rawApiData)
+    console.log(rawApiData)
     const apiData = Object.keys(rawApiData).map(i => {
       return Object.assign({}, {api: i}, rawApiData[i])
     })
+    console.log("apiData")
+    console.log(apiData)
     const newApiData = apiData.map(item => {
       if(typeof item.response === 'undefined')
       {
@@ -125,4 +127,4 @@ const mapStateToProps = state => ({
   ...state
 })
 
-export default connect(mapStateToProps)(API)
+export default connect(mapStateToProps)(DNS)
