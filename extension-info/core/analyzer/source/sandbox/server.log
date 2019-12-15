@@ -1,28 +1,262 @@
 Running BrowserMob Proxy using LittleProxy implementation. To revert to the legacy implementation, run the proxy with the command-line option '--use-littleproxy false'.
-[INFO  2019-12-14T22:48:58,216 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
-[INFO  2019-12-14T22:48:58,274 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
-[INFO  2019-12-14T22:48:58,495 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
-[INFO  2019-12-14T22:48:58,754 org.eclipse.jetty.util.log] (main) Started SelectChannelConnector@0.0.0.0:8080 
-[INFO  2019-12-14T22:49:00,708 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp1503660218-20) Starting proxy at address: 0.0.0.0/0.0.0.0:8081 
-[INFO  2019-12-14T22:49:00,749 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp1503660218-20) Proxy listening with TCP transport 
-[INFO  2019-12-14T22:49:01,192 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp1503660218-20) Proxy started at address: /0:0:0:0:0:0:0:0:8081 
-[WARN  2019-12-14T22:49:05,545 net.lightbody.bmp.mitm.util.SslUtil] (LittleProxy-0-ClientToProxyWorker-0) Disabling upstream server certificate verification. This will allow attackers to intercept communications with upstream servers. 
-[WARN  2019-12-14T22:49:07,184 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-4) Cannot decode unsupported content encoding type br 
-[WARN  2019-12-14T22:49:07,185 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-4) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
-[WARN  2019-12-14T22:49:07,184 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-1) Cannot decode unsupported content encoding type br 
-[WARN  2019-12-14T22:49:07,186 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-1) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
-[WARN  2019-12-14T22:49:07,284 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) Cannot decode unsupported content encoding type br 
-[WARN  2019-12-14T22:49:07,285 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
-[WARN  2019-12-14T22:49:08,564 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-7) Cannot decode unsupported content encoding type br 
-[WARN  2019-12-14T22:49:08,564 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-7) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
-[WARN  2019-12-14T22:49:10,769 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) Cannot decode unsupported content encoding type br 
-[WARN  2019-12-14T22:49:10,769 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
-[WARN  2019-12-14T22:49:11,009 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-7) Cannot decode unsupported content encoding type br 
-[WARN  2019-12-14T22:49:11,009 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-7) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
-[WARN  2019-12-14T22:49:12,870 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-7) Cannot decode unsupported content encoding type br 
-[WARN  2019-12-14T22:49:12,870 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-7) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
-[WARN  2019-12-14T22:49:13,258 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-2) Cannot decode unsupported content encoding type br 
-[WARN  2019-12-14T22:49:13,259 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-2) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
-[INFO  2019-12-14T22:49:14,921 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Shutting down proxy server immediately (non-graceful) 
-[INFO  2019-12-14T22:49:14,922 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (LittleProxy-JVM-shutdown-hook) Closing all channels (non-graceful) 
-Terminate batch job (Y/N)? Terminate batch job (Y/N)? Terminate batch job (Y/N)? 
+[INFO  2019-12-15T10:01:15,357 net.lightbody.bmp.proxy.Main] (main) Starting BrowserMob Proxy version 2.1.4 
+[INFO  2019-12-15T10:01:16,210 org.eclipse.jetty.util.log] (main) jetty-7.x.y-SNAPSHOT 
+[INFO  2019-12-15T10:01:16,689 org.eclipse.jetty.util.log] (main) started o.e.j.s.ServletContextHandler{/,null} 
+[INFO  2019-12-15T10:01:17,765 org.eclipse.jetty.util.log] (main) Started SelectChannelConnector@0.0.0.0:8080 
+[INFO  2019-12-15T10:01:24,494 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp13187222-18) Starting proxy at address: 0.0.0.0/0.0.0.0:8081 
+[INFO  2019-12-15T10:01:24,885 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp13187222-18) Proxy listening with TCP transport 
+[INFO  2019-12-15T10:01:25,855 org.littleshoot.proxy.impl.DefaultHttpProxyServer] (qtp13187222-18) Proxy started at address: /0:0:0:0:0:0:0:0:8081 
+[WARN  2019-12-15T10:01:59,240 net.lightbody.bmp.mitm.util.SslUtil] (LittleProxy-0-ClientToProxyWorker-0) Disabling upstream server certificate verification. This will allow attackers to intercept communications with upstream servers. 
+[WARN  2019-12-15T10:02:17,146 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:02:17,146 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:02:25,890 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:02:25,890 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:02:25,914 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-3) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:02:25,914 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-3) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:02:25,915 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-6) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:02:25,916 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-6) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:02:25,920 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:02:25,921 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:02:26,680 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:02:26,680 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:02:26,793 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-1) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:02:26,793 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-1) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:02:26,830 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:02:26,830 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:02:26,882 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-2) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:02:26,882 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-2) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:02:26,945 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:02:26,945 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:02:39,810 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:02:39,810 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:02:41,172 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-6) No content type specified in response from /analytics.js. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:02:41,507 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-6) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:02:41,507 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-6) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:02:43,653 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-6) No content type specified in response from /pagead/conversion_async.js. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:02:51,227 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-3) No content type specified in response from /live/red_lojson/100eng.json?sh=0&ph=4605&ivh=969&dt=16465&pdt=1560&ict=&pct=1&perf=widget%7C1561%7C1935%2Clojson%7C3696%7C4569%2Csh%7C3700%7C11&rndr=render_toolbox%7C8208&cmenu=null&ppd=0&ppl=0&fbe=&xmv=0&xms=0&xmlc=0&jsfw=jquery%2Cgoogleanalytics&jsfwv=jquery-1.12.4%2Cgoogleanalytics-analytics.js&al=wpwt&scr=0&scv=0&apiu=1&ba=7&sid=5df5a24a076cac7d&rev=v8.28.1-wp&pub=ra-59dc801a751ab805&dp=www.timo.vn&fp=&pfm=0&icns=. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:02:56,479 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-4) No content type specified in response from /sw.js. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:11,352 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-1) No content type specified in response from /v1/r/d/b/p3?f=d8f6908ca3664e7885af2bb2a84c1c6b&s=UNIFIED_LOGIN_INPUT_EMAIL. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:21,127 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-6) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:03:21,127 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-6) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:03:23,142 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-7) No content type specified in response from /api/v2/get_feature_toggles. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:25,275 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-1) No content type specified in response from /plugins/ua/linkid.js. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:25,490 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-6) No content type specified in response from /api/v2/get_feature_toggles. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:25,582 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-3) No content type specified in response from /api/v2/custom_collection/get?category_id=2365&platform=0. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:28,610 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-1) No content type specified in response from /api/v2/location_filter/get_all. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:28,747 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-4) No content type specified in response from /api/v2/get_feature_toggles. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:29,022 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /api/v2/shop/get_categories?limit=20&offset=0&shopid=95303264. Content will be treated as application/octet-stream 
+[INFO  2019-12-15T10:03:30,003 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-1) (CONNECTING) [id: 0xcb46ab64]: Connection to upstream server failed io.netty.channel.AbstractChannel$AnnotatedConnectException: Connection timed out: no further information: /192.55.233.1:443
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[?:1.8.0_231]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(Unknown Source) ~[?:1.8.0_231]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:346) ~[browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:639) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_231]
+
+[WARN  2019-12-15T10:03:33,723 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-7) No content type specified in response from /api/v2/get_feature_toggles. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:41,773 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ClientToProxyWorker-2) No content type specified in request to /i/csp_report?a=NVQWGYLXFVZXO2LGOQ%3D%3D%3D%3D%3D%3D&ro=false. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:42,000 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /i/csp_report?a=NVQWGYLXFVZXO2LGOQ%3D%3D%3D%3D%3D%3D&ro=false. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:42,494 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ClientToProxyWorker-2) No content type specified in request to /i/csp_report?a=NVQWGYLXFVZXO2LGOQ%3D%3D%3D%3D%3D%3D&ro=false. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:42,720 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /i/csp_report?a=NVQWGYLXFVZXO2LGOQ%3D%3D%3D%3D%3D%3D&ro=false. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:44,334 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /sw.js. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:50,809 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ClientToProxyWorker-2) No content type specified in request to /i/csp_report?a=NVQWGYLXFVZXO2LGOQ%3D%3D%3D%3D%3D%3D&ro=false. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:51,040 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /i/csp_report?a=NVQWGYLXFVZXO2LGOQ%3D%3D%3D%3D%3D%3D&ro=false. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:53,009 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-1) No content type specified in response from /sw.js. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:54,665 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ClientToProxyWorker-1) No content type specified in request to /i/csp_report?a=NVQWGYLXFVZXO2LGOQ%3D%3D%3D%3D%3D%3D&ro=false. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:54,885 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-1) No content type specified in response from /i/csp_report?a=NVQWGYLXFVZXO2LGOQ%3D%3D%3D%3D%3D%3D&ro=false. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:03:55,844 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-1) No content type specified in response from /sw.js. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:04:04,905 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) No content type specified in response from /scripts/StoreCallbacks.js. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:04:04,918 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-3) No content type specified in response from /scripts/TagIT.v1.min.js?v=43. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:04:05,391 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) No content type specified in response from /resources/themes/draco/scripts/ads.js. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:04:05,559 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-1) No content type specified in response from /scripts/Store2015.min.js. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:04:05,579 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-2) No content type specified in response from /scripts/StoreCallbacksFunctions.js. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:04:05,685 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-4) No content type specified in response from /scripts/bizible.js. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:04:05,757 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) No content type specified in response from /resources/themes/draco/minimize/lite_v2/csslite_v2.v509.min.css. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:04:05,804 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) No content type specified in response from /resources/themes/draco/minimize/lite_v2/jslite_v2.v502.min.js. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:04:06,037 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) No content type specified in response from /resources/themes/draco/images/lite_v2/logo-white.svg. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:04:06,080 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) No content type specified in response from /resources/themes/draco/images/lite_v2/down.svg. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:04:23,319 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:04:09,850 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-3) No content type specified in response from /cm/dd?d_uuid=47661348227371036773756758067079963820. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:04:09,175 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-1) No content type specified in response from /resources/themes/draco/images/lite_v2/parlogo.png. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:04:09,173 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-7) No content type specified in response from /resources/themes/draco/images/lite_v2/twit.svg. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:04:09,173 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-2) No content type specified in response from /resources/themes/draco/images/lite_v2/fbk.svg. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:04:06,969 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-4) No content type specified in response from /resources/themes/draco/images/holiday_box.png. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:04:06,825 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-6) Failed to decompress response with encoding type gzip when decoding request from /uc.js net.lightbody.bmp.exception.DecompressionException: Unable to decompress response
+	at net.lightbody.bmp.util.BrowserMobHttpUtil.decompressContents(BrowserMobHttpUtil.java:101) ~[browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.filters.ServerResponseCaptureFilter.decompressContents(ServerResponseCaptureFilter.java:131) [browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.filters.ServerResponseCaptureFilter.captureFullResponseContents(ServerResponseCaptureFilter.java:118) [browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.filters.ServerResponseCaptureFilter.serverToProxyResponse(ServerResponseCaptureFilter.java:99) [browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.filters.HarCaptureFilter.serverToProxyResponse(HarCaptureFilter.java:250) [browsermob-dist-2.1.4.jar:?]
+	at net.lightbody.bmp.filters.BrowserMobHttpFilterChain.serverToProxyResponse(BrowserMobHttpFilterChain.java:123) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ClientToProxyConnection.respond(ClientToProxyConnection.java:418) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyToServerConnection.respondWith(ProxyToServerConnection.java:519) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyToServerConnection.readHTTPChunk(ProxyToServerConnection.java:251) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyConnection.readHTTP(ProxyConnection.java:146) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyConnection.read(ProxyConnection.java:120) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyToServerConnection.read(ProxyToServerConnection.java:214) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyConnection.channelRead0(ProxyConnection.java:587) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.SimpleChannelInboundHandler.channelRead(SimpleChannelInboundHandler.java:105) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.timeout.IdleStateHandler.channelRead(IdleStateHandler.java:266) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:86) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyConnection$ResponseReadMonitor.channelRead(ProxyConnection.java:738) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.fireChannelRead(ByteToMessageDecoder.java:293) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:267) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.ChannelInboundHandlerAdapter.channelRead(ChannelInboundHandlerAdapter.java:86) [browsermob-dist-2.1.4.jar:?]
+	at org.littleshoot.proxy.impl.ProxyConnection$BytesReadMonitor.channelRead(ProxyConnection.java:692) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.ssl.SslHandler.unwrap(SslHandler.java:1069) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.ssl.SslHandler.decode(SslHandler.java:902) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.callDecode(ByteToMessageDecoder.java:411) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.handler.codec.ByteToMessageDecoder.channelRead(ByteToMessageDecoder.java:248) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.fireChannelRead(AbstractChannelHandlerContext.java:351) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.DefaultChannelPipeline$HeadContext.channelRead(DefaultChannelPipeline.java:1334) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:373) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.AbstractChannelHandlerContext.invokeChannelRead(AbstractChannelHandlerContext.java:359) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.DefaultChannelPipeline.fireChannelRead(DefaultChannelPipeline.java:926) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.AbstractNioByteChannel$NioByteUnsafe.read(AbstractNioByteChannel.java:129) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:651) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:574) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:488) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:450) [browsermob-dist-2.1.4.jar:?]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:873) [browsermob-dist-2.1.4.jar:?]
+	at java.lang.Thread.run(Unknown Source) [?:1.8.0_231]
+Caused by: java.io.EOFException
+	at java.util.zip.GZIPInputStream.readUByte(Unknown Source) ~[?:1.8.0_231]
+	at java.util.zip.GZIPInputStream.readUShort(Unknown Source) ~[?:1.8.0_231]
+	at java.util.zip.GZIPInputStream.readHeader(Unknown Source) ~[?:1.8.0_231]
+	at java.util.zip.GZIPInputStream.<init>(Unknown Source) ~[?:1.8.0_231]
+	at java.util.zip.GZIPInputStream.<init>(Unknown Source) ~[?:1.8.0_231]
+	at net.lightbody.bmp.util.BrowserMobHttpUtil.decompressContents(BrowserMobHttpUtil.java:89) ~[browsermob-dist-2.1.4.jar:?]
+	... 53 more
+
+[WARN  2019-12-15T10:04:58,877 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-0) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:04:58,880 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-6) Unable to decompress content with encoding: gzip. Contents will be encoded as base64 binary data. 
+[INFO  2019-12-15T10:04:58,943 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-7) (NEGOTIATING_CONNECT) [id: 0xb13e24d8, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63192]: An IOException occurred on ClientToProxyConnection: An established connection was aborted by the software in your host machine 
+[INFO  2019-12-15T10:04:58,944 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-7) (HANDSHAKING) [id: 0x7589e463, L:0.0.0.0/0.0.0.0:63245 ! R:assets.adobedtm.com/23.213.141.88:443]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2019-12-15T10:04:58,946 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-6) (NEGOTIATING_CONNECT) [id: 0xdd5c61ff, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63191]: An IOException occurred on ClientToProxyConnection: An established connection was aborted by the software in your host machine 
+[INFO  2019-12-15T10:04:58,946 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-6) (HANDSHAKING) [id: 0x8c367801, L:0.0.0.0/0.0.0.0:63255 ! R:assets.adobedtm.com/23.213.141.88:443]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2019-12-15T10:04:58,968 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-4) (NEGOTIATING_CONNECT) [id: 0x78492dac, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63205]: An IOException occurred on ClientToProxyConnection: An established connection was aborted by the software in your host machine 
+[INFO  2019-12-15T10:04:58,969 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-4) (HANDSHAKING) [id: 0xd7b37f77, L:0.0.0.0/0.0.0.0:63246 ! R:www.facebook.com/31.13.95.36:443]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2019-12-15T10:04:58,982 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-5) (NEGOTIATING_CONNECT) [id: 0x4a518b5d, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63206]: An IOException occurred on ClientToProxyConnection: An established connection was aborted by the software in your host machine 
+[INFO  2019-12-15T10:04:58,983 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-7) (HANDSHAKING) [id: 0x8e2dd7bf, L:0.0.0.0/0.0.0.0:63249 ! R:download.bitdefender.com/192.229.145.72:443]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2019-12-15T10:04:58,992 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-1) (NEGOTIATING_CONNECT) [id: 0x924b8ec8, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63199]: An IOException occurred on ClientToProxyConnection: An established connection was aborted by the software in your host machine 
+[INFO  2019-12-15T10:04:58,993 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-1) (HANDSHAKING) [id: 0x4860e840, L:0.0.0.0/0.0.0.0:63238 ! R:beacons.gcp.gvt2.com/74.125.24.94:443]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2019-12-15T10:04:59,004 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-6) (NEGOTIATING_CONNECT) [id: 0x6b6d8ee8, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63178]: An IOException occurred on ClientToProxyConnection: An established connection was aborted by the software in your host machine 
+[INFO  2019-12-15T10:04:59,004 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-6) (HANDSHAKING) [id: 0x8c648ce8, L:0.0.0.0/0.0.0.0:63253 ! R:download.bitdefender.com/192.229.145.72:443]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2019-12-15T10:04:59,011 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-6) (NEGOTIATING_CONNECT) [id: 0xc49b6ee4, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63207]: An IOException occurred on ClientToProxyConnection: An established connection was aborted by the software in your host machine 
+[INFO  2019-12-15T10:04:59,012 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-6) (HANDSHAKING) [id: 0x57d135cb, L:0.0.0.0/0.0.0.0:63256 ! R:download.bitdefender.com/192.229.145.72:443]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2019-12-15T10:04:59,040 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-5) (NEGOTIATING_CONNECT) [id: 0x739f0ede, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63177]: An IOException occurred on ClientToProxyConnection: An established connection was aborted by the software in your host machine 
+[INFO  2019-12-15T10:04:59,041 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-5) (HANDSHAKING) [id: 0xd9915258, L:0.0.0.0/0.0.0.0:63239 ! R:beacons.gcp.gvt2.com/74.125.24.94:443]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2019-12-15T10:04:59,520 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-7) (NEGOTIATING_CONNECT) [id: 0xc3917e41, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63208]: An IOException occurred on ClientToProxyConnection: An established connection was aborted by the software in your host machine 
+[INFO  2019-12-15T10:04:59,521 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-5) (HANDSHAKING) [id: 0xdcc69f44, L:0.0.0.0/0.0.0.0:63242 ! R:download.bitdefender.com/192.229.145.72:443]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2019-12-15T10:05:00,273 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-2) (NEGOTIATING_CONNECT) [id: 0xdf949c55, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63184]: An IOException occurred on ClientToProxyConnection: An established connection was aborted by the software in your host machine 
+[INFO  2019-12-15T10:05:00,274 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-4) (HANDSHAKING) [id: 0x9fc61f75, L:0.0.0.0/0.0.0.0:63244 ! R:fullstory.com/216.239.32.21:443]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2019-12-15T10:05:00,341 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-3) (NEGOTIATING_CONNECT) [id: 0xf9dae133, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63204]: An IOException occurred on ClientToProxyConnection: An established connection was aborted by the software in your host machine 
+[INFO  2019-12-15T10:05:00,342 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-3) (HANDSHAKING) [id: 0x2323a694, L:0.0.0.0/0.0.0.0:63236 ! R:facebook.com/157.240.15.35:443]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2019-12-15T10:05:01,265 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-0) (NEGOTIATING_CONNECT) [id: 0xef41dd0e, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63193]: An IOException occurred on ClientToProxyConnection: An established connection was aborted by the software in your host machine 
+[INFO  2019-12-15T10:05:01,266 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-0) (NEGOTIATING_CONNECT) [id: 0x3f511ea0, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63209]: An IOException occurred on ClientToProxyConnection: An established connection was aborted by the software in your host machine 
+[INFO  2019-12-15T10:05:01,267 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-2) (DISCONNECTED) [id: 0x5a60b79d, L:0.0.0.0/0.0.0.0:63247]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2019-12-15T10:05:01,267 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-2) (DISCONNECTED) [id: 0x23bde428, L:0.0.0.0/0.0.0.0:63250]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[WARN  2019-12-15T10:05:01,342 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-2) No content type specified in response from /. Content will be treated as application/octet-stream 
+[INFO  2019-12-15T10:05:01,399 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-5) (NEGOTIATING_CONNECT) [id: 0xc99407be, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63190]: An IOException occurred on ClientToProxyConnection: An established connection was aborted by the software in your host machine 
+[INFO  2019-12-15T10:05:01,399 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-5) (HANDSHAKING) [id: 0xc74bb8ef, L:0.0.0.0/0.0.0.0:63241 ! R:freegeoip.app/104.28.4.151:443]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[INFO  2019-12-15T10:05:01,419 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-1) (NEGOTIATING_CONNECT) [id: 0x5676a4f9, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63210]: An IOException occurred on ClientToProxyConnection: An established connection was aborted by the software in your host machine 
+[INFO  2019-12-15T10:05:01,450 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-1) (HANDSHAKING) [id: 0xbf563b2e, L:0.0.0.0/0.0.0.0:63240 ! R:www.kaspersky.com.vn/218.213.144.7:443]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
+[WARN  2019-12-15T10:05:02,163 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-6) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:05:02,163 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-6) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:05:02,742 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:05:02,742 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:05:02,753 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-4) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:05:02,753 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-4) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:05:03,009 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-3) No content type specified in response from /cm/dd?d_uuid=47661348227371036773756758067079963820. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:05:03,043 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-3) No content type specified in response from /ibs:dpid=411&dpuuid=XfMYBAAAGIerK_fW&d_uuid=47661348227371036773756758067079963820. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:05:04,308 net.lightbody.bmp.filters.ServerResponseCaptureFilter] (LittleProxy-0-ProxyToServerWorker-4) Cannot decode unsupported content encoding type br 
+[WARN  2019-12-15T10:05:04,308 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-4) Unable to decompress content with encoding: br. Contents will be encoded as base64 binary data. 
+[WARN  2019-12-15T10:05:05,133 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-3) No content type specified in response from /symantec/scode/s_code_norton_min.js. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:05:05,145 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-5) No content type specified in response from /symantec/aemprod/Bootstrap.js. Content will be treated as application/octet-stream 
+[WARN  2019-12-15T10:05:06,574 net.lightbody.bmp.filters.HarCaptureFilter] (LittleProxy-0-ProxyToServerWorker-2) No content type specified in response from /dest5.html?d_nsid=undefined. Content will be treated as application/octet-stream 
+[INFO  2019-12-15T10:05:06,624 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-3) (AWAITING_INITIAL) [id: 0xdec6ffba, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63263]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,621 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-1) (AWAITING_INITIAL) [id: 0xbf2682f4, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63169]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,621 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-7) (AWAITING_INITIAL) [id: 0xfad32e57, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63158]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,621 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-4) (AWAITING_INITIAL) [id: 0x35f50668, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63282]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,628 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-7) (AWAITING_INITIAL) [id: 0x38c6ce50, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63232]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,630 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-3) (AWAITING_INITIAL) [id: 0xc2c30da6, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63278]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,630 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-2) (AWAITING_INITIAL) [id: 0x8558e82f, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63261]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,630 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-0) (AWAITING_INITIAL) [id: 0x0d0c6c8a, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63235]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,630 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-5) (AWAITING_INITIAL) [id: 0x3a76ea64, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63227]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,630 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-4) (AWAITING_INITIAL) [id: 0x027469c2, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63186]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,630 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-7) (AWAITING_INITIAL) [id: 0x5c28e8ed, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63286]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,631 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-1) (AWAITING_INITIAL) [id: 0xb7604bf1, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63275]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,784 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-0) (AWAITING_INITIAL) [id: 0xbb99e8c8, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63289]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,784 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-5) (AWAITING_INITIAL) [id: 0x09ecac46, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63156]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,784 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-4) (AWAITING_INITIAL) [id: 0xcdb870ff, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63155]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,784 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-0) (AWAITING_INITIAL) [id: 0xcac08733, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63271]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,785 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-5) (AWAITING_INITIAL) [id: 0x2664095b, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63284]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,785 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-4) (AWAITING_INITIAL) [id: 0x3a16895c, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63224]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,785 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-3) (AWAITING_INITIAL) [id: 0x09142ed9, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63185]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,785 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-5) (AWAITING_INITIAL) [id: 0x07b0a432, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63267]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,785 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-4) (AWAITING_INITIAL) [id: 0xfd47a308, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63265]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,785 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-3) (AWAITING_INITIAL) [id: 0x048d0562, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63223]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,786 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-1) (AWAITING_INITIAL) [id: 0x5eb43324, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63259]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,786 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-2) (AWAITING_INITIAL) [id: 0x44104e19, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63153]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,786 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-7) (AWAITING_INITIAL) [id: 0x15940513, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63270]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,786 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-1) (AWAITING_INITIAL) [id: 0x95af327d, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63292]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:06,786 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-2) (AWAITING_INITIAL) [id: 0x012872f0, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63277]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:08,398 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-6) (AWAITING_INITIAL) [id: 0x9b88d6bf, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63144]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:08,398 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-6) (AWAITING_INITIAL) [id: 0x1a07cb5c, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63157]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:08,398 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-6) (AWAITING_INITIAL) [id: 0xef84d9fe, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63230]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:08,399 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-6) (AWAITING_INITIAL) [id: 0xa4f56255, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63269]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:08,399 org.littleshoot.proxy.impl.ClientToProxyConnection] (LittleProxy-0-ClientToProxyWorker-6) (NEGOTIATING_CONNECT) [id: 0x085f9219, L:/0:0:0:0:0:0:0:1:8081 - R:/0:0:0:0:0:0:0:1:63285]: An IOException occurred on ClientToProxyConnection: An existing connection was forcibly closed by the remote host 
+[INFO  2019-12-15T10:05:08,400 org.littleshoot.proxy.impl.ProxyToServerConnection] (LittleProxy-0-ProxyToServerWorker-1) (HANDSHAKING) [id: 0x1ff6cf51, L:0.0.0.0/0.0.0.0:63294 ! R:cdn.tt.omtrdc.net/23.75.80.16:443]: Connection to upstream server failed java.nio.channels.ClosedChannelException: null
+	at io.netty.handler.ssl.SslHandler.channelInactive(...)(Unknown Source) ~[browsermob-dist-2.1.4.jar:?]
+
