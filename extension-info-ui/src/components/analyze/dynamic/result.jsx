@@ -14,7 +14,7 @@ class API extends Component {
           {
             Header: "API name",
             maxWidth: 500,
-            accessor: 'apis'
+            accessor: 'api'
           },
           {
             Header: "Times",
@@ -34,7 +34,7 @@ class API extends Component {
     console.log(this.props.Report)
     console.log(rawApiData)
     const apiData = Object.keys(rawApiData).map(i => {
-      return Object.assign({}, {api: i}, rawApiData[i])
+      return Object.assign({  }, {api: i}, rawApiData[i])
     })
     console.log(apiData)
     return (

@@ -13,20 +13,20 @@ def main():
     args = parser.parse_args()
     if args.link:
         ID, Name = GetExtID(args.link)   #get ID, ext name
-
-        Extdir = DownloadAndExtractExt(ID, Name)   #return result in DB
-        if Extdir == "Already":  #Already in DB
-            pass
-
-        elif Extdir != "Error":
-            # collection = ConnectMongoDB("Analyzer")
-            # ExtensionAnalyzer(collection, ID, Extdir)
-            if (CheckMongoDB(ID) == None):
+        if (CheckMongoDB(ID) == None):
+            Extdir = SearchByID(ID)
+            # print(Extdir[0][2])
+            # Extdir = DownloadAndExtractExt(ID, Name)   #return result in DB
+            if ("not found" not in Extdir):
+                collection = ConnectMongoDB("Analyzer")
+                ExtensionAnalyzer(collection, ID, Extdir[0][2])
+            else:
+                Extdir = DownloadAndExtractExt(ID, Name)
+                if (Extdir == "Error"):
+                    print("Error when download and extract Ext")
+                    return
                 collection = ConnectMongoDB("Analyzer")
                 ExtensionAnalyzer(collection, ID, Extdir)
-        else:
-            print("Error when download and extract Ext")
-            return
         print(ID)
 
         # ExtensionAnalyzer(ID, 'G:\\New\\Extensions\\SOURCE\\WEB\\extension-info\\core\\analyzer\\Data\\shard=0&numshards=992\\' + Ext)

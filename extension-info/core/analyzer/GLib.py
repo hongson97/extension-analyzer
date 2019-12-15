@@ -12,7 +12,7 @@ from multiprocessing import Pool as ProcessPool
 import pdb
 from mongodb import * 
 cwd = os.path.abspath(os.path.dirname(sys.argv[0]))
-database = cwd + r"\source\sandbox\Extensions.db"
+database = cwd + r"\source\sandbox\ExtensionDb.db"
 DataDir = cwd +r"\Data"
 
 def FileConcat(file, pattern, string):   #Noi file?
@@ -112,7 +112,7 @@ def ListJSFile(path):
 
 
 #This functions used to export permissions
-def ManifestParser(file):   #file = 'manifest.json' of an extension
+def ManifestParser(file, root_path):   #file = 'manifest.json' of an extension
     try:
         global name
         with io.open(file, 'r', encoding='utf-8-sig') as f:    #open 'manifest.json'
@@ -126,7 +126,15 @@ def ManifestParser(file):   #file = 'manifest.json' of an extension
             #     permissions_file.write(str(data['permissions']))    #still right
 
             if 'name' in data:
-                name = data['name']
+                if ('__MSG_' in data['name']):
+                    temp = data['name'].replace('__MSG_', '').replace('__','')
+                    path = root_path + r'\_locales\en\messages.json'
+                    with open(path, 'r') as f:
+                        tmpjson = json.loads(f.read(), strict=False)
+                        temp_name = tmpjson[temp]['message']
+                    name = temp_name
+                else: 
+                    name = data['name']
             permissions = []
             if 'permissions' in data:
                     permissions = data['permissions']
@@ -256,7 +264,7 @@ def SearchByID(id):                 #searching in DB
     if not result:
         return "Extension not found. Please enter link to extension to analyze"
     else:
-        result = [(res[0], res[1], "Output\\" + res[0]) for res in result]
+        result = [(res[0], res[1], res[2]) for res in result]
         return result
 
 
@@ -281,10 +289,10 @@ def DownloadAndExtractExt(ExtID,ExtName):
     filename = '{0}.crx'.format(ExtName)    
     dst_path = DataDir + "\\" + filename         
     dst_dir = DataDir + "\\" + filename[:-4]
-    if CheckDownloaded(c, ExtID):
-        return "Already"
-    crx_url = GetCrxUrl(ExtID)
 
+    # if CheckDownloaded(c, ExtID):
+    #     return "Already"
+    crx_url = GetCrxUrl(ExtID)
     try:
         req = requests.get(crx_url, stream=True)
         status_code = req.status_code
@@ -333,10 +341,10 @@ def ExtensionAnalyzer(collection, ext_id, root_path):
         manifest_file = root_path + "\\manifest.json"
         final_output = {}
         if os.path.exists(manifest_file) and os.path.getsize(manifest_file): #Update permissions
-            manifest_output = ManifestParser(manifest_file)   #something wrong here. FIXED!
+            manifest_output = ManifestParser(manifest_file, root_path)   #something wrong here. FIXED!
         else:
-            manifest_output = dict(permissions={})    #It's not jump here
-        js_files = [e.replace('\\', "\\") for e in ListJSFile(root_path)] #is replace() useful?
+            manifest_output = dict(permissions={})
+        js_files = [e.replace('\\', "\\") for e in ListJSFile(root_path)] 
         api_output = dict(api={})
 
         pool = ProcessPool(8)         
