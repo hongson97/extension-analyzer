@@ -152,7 +152,6 @@ if __name__ == "__main__":
     
     if(sys.argv[1] == "-l"):
         id_ext,name_ext = GetExtID(sys.argv[2])
-        print(id_ext)
         IDX,PathExt = SearchByID(id_ext)[0]
         send_real_idx(IDX)
         if(IDX is None):
