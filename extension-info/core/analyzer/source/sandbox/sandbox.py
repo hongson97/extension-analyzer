@@ -24,7 +24,7 @@ database = cwd + r"\Extensions.db"
 
 mycol_network = init_database("NETWORK")
 mycol_report = init_database("REPORT")
-mycol_risk = init_database("Risk")
+mycol_risk = init_thesis("Risk")
 
 def ConnectDB(db):
     conn = sqlite3.connect(db)
@@ -46,7 +46,7 @@ def GetListExt(db):
 
 def GetExtensionHighRisk():
     high_risk_extension_id = []
-    x = mycol_risk.find({"risk":"High"})
+    x = mycol_risk.find({"risk":"High risk"})
     for idx in x:
         high_risk_extension_id.append(idx["id"])
     return high_risk_extension_id
@@ -164,10 +164,11 @@ if __name__ == "__main__":
             AnalyzerDynamic(mycol_network,IDX,PathExt)
 
     if(sys.argv[1] == "-m"):
+        print("[+]Starting...")
         high_risk_extension_id = GetExtensionHighRisk()
         for idx in high_risk_extension_id:
             IDX,PathExt = SearchByID(idx)[0]
-
+            send_real_idx(IDX)
             print("[+] Extension:",IDX)
             if(checking_report(IDX) == True):
                 print(" |- Report exist\n")

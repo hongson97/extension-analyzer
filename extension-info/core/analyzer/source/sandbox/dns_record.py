@@ -37,10 +37,10 @@ collection_default = {
 logger_dns = {}
 count = 0
 
-def init_database():
+def init_database(collection):
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")
     mydb = myclient["ChromeExtension"]
-    mycol = mydb["DNS"]
+    mycol = mydb[collection]
     return mycol
 
 def insert_request(idx,count, timestamp, source_ip, source_port, dest_ip, dest_port, qname, transaction):
@@ -65,7 +65,7 @@ def insert_db(mycol, data):
         file_log.write(str(logger_dns)+"\n")
         print("==>" + str(e))
 
-mycol = init_database()
+mycol = init_database("DNS")
 count = 0
 def parse_dnspkt(idx,pkt):
     """ parse dns request / response packet """
