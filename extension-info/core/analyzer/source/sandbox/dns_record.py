@@ -17,7 +17,8 @@ log_dns_path = cwd +r"\log\log_dns.txt"
 file_log = open(log_dns_path, "a+")
 
 hostname = socket.gethostname()    
-IPAddr = socket.gethostbyname(hostname)   
+IPAddr = socket.gethostbyname(hostname)  
+
 # disable verbose mode
 conf.verb = 0
 
@@ -59,7 +60,7 @@ def insert_request(idx,count, timestamp, source_ip, source_port, dest_ip, dest_p
 def insert_db(mycol, data):
     try:
         x = mycol.insert_one(data)
-        #print(x.inserted_id)
+        print(x.inserted_id)
     except Exception as e:
         file_log.write(str(e)+"\n")
         file_log.write(str(logger_dns)+"\n")
@@ -75,7 +76,7 @@ def parse_dnspkt(idx,pkt):
         dns = pkt['DNS']
         # dns query packet
         if (int(udp.dport) == 53 and ip.src == IPAddr):
-            #print("[+] Request Called!")
+            print("[+] Request Called!")
             global count
             count = count + 1
             now = datetime.now()

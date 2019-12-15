@@ -12,94 +12,49 @@ class API extends Component {
       table: {
         columns: [
           {
-            Header: 'API',
-            maxWidth: 200,
-            accessor: 'api'
+            Header: "API name",
+            maxWidth: 500,
+            accessor: 'apis'
           },
           {
-            Header: 'Behavior',
-            accessor: 'behavior',
-            style: {'whiteSpace': 'unset'}
+            Header: "Times",
+            accessor: 'apis.value',
+            style: {'whiteSpace': 'unset', 
+                      'text-center': 'set'}
           },
-          // {
-          //   Header: 'Risk',
-          //   maxWidth: 200,
-          //   accessor: 'risk',
-          //   style: {'whiteSpace': 'unset'},
-          //   Cell: row => {
-          //     switch (row.original.risk) {
-          //       case 'Low risk':
-          //         return <div className='text-black-50 text-center'>Low Risk</div>
-          //       case 'Medium risk':
-          //         return <div className='text-warning text-center'>Medium Risk</div>
-          //       case 'High risk':
-          //         return <div className='text-danger text-center'>High Risk</div>
-          //       default:
-          //     }
-          //   }
-          // },
+
         ],
-        subTable: {
-          columns: [
-            {
-              Header: 'file',
-              accessor: 'file',
-              minWidth: 100,
-              maxWidth: 150,
-            },
-            {
-              Header: 'Line',
-              // accessor: 'line_number',
-              minWidth: 50,
-              maxWidth: 50,
-              Cell: row => {
-                return row.original.lines.map((line, index) => {
-                  if (line[`code_${(index + 1)}`])
-                    return <Highlight className="javascript hljs m-0">{line[`line_${(index + 1)}`]}</Highlight>
-                })
-              }
-            },
-            {
-              Header: 'Code',
-              accessor: 'code',
-              Cell: row => {
-                return row.original.lines.map((line, index) => {
-                  if (line[`code_${(index + 1)}`])
-                    return <Highlight className="javascript hljs m-0">{line[`code_${(index + 1)}`]}</Highlight>
-                })
-              }
-            }
-          ]
-        }
+        
       }
     }
   }
 
   render() {
-    const rawApiData = this.props.analyze.result.api    //change this when have database
+    const rawApiData = this.props.analyze.result_dynamic.result.Report.apis   //change this when have database
+    console.log(this.props.Report)
     console.log(rawApiData)
     const apiData = Object.keys(rawApiData).map(i => {
       return Object.assign({}, {api: i}, rawApiData[i])
     })
     console.log(apiData)
     return (
+      
+      <div>
+        <h2>Number has called: {this.props.analyze.result_dynamic.result.Report.total_api} </h2>
+      <h2> 123</h2>
       <ReactTable
         showPagination={false}
         defaultPageSize={apiData ? apiData.length : 5}
         data={apiData}
-        columns={this.state.table.columns}
-        SubComponent={row => {
-          console.log(row.original)
-          return (
-            <div style={{padding: '20px'}}>
-              <ReactTable
-                data={row.original.lines_found}
-                columns={this.state.table.subTable.columns}
-                defaultPageSize={5}
-              />
-            </div>
-          )
-        }}/>
+        columns={this.state.table.columns}/>
+        <br></br>
+      <h5> ABC</h5>
+        <ReactTable
+        showPagination={false}
+        defaultPageSize={apiData ? apiData.length : 5}
+        data={apiData}
+        columns={this.state.table.columns}/>
+        </div>
     )
   }
 
