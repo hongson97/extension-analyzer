@@ -129,7 +129,7 @@ def ManifestParser(file, root_path):   #file = 'manifest.json' of an extension
                 if ('__MSG_' in data['name']):
                     temp = data['name'].replace('__MSG_', '').replace('__','')
                     path = root_path + r'\_locales\en\messages.json'
-                    with open(path, 'r') as f:
+                    with open(path, 'r', encoding="utf8") as f:
                         tmpjson = json.loads(f.read(), strict=False)
                         temp_name = tmpjson[temp]['message']
                     name = temp_name
@@ -359,7 +359,7 @@ def ExtensionAnalyzer(collection, ext_id, root_path):
             api_output['api'].update(result)
         final_output.update(manifest_output)
         final_output.update(api_output)
-        # print("Testing: {}", format(final_output))
+
         try:
             # final_output.
             temp = {"id" : ext_id}

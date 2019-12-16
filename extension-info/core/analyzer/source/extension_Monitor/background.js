@@ -10,24 +10,7 @@ chrome.activityLogPrivate.onExtensionActivity.addListener(function(activity) {
         success: function(response) {
             count = count + 1;
             console.log(count);
-
         }
     });
 
 });
-
-
-// var CaptureSreen = function() {
-//     chrome.tabs.captureVisibleTab(function(img) {
-//         console.log("AAA");
-//         console.log(img);
-//     });
-// };
-
-// chrome.tabs.onUpdated.addListener(function() {
-//     setInterval(CaptureSreen(), 2000);
-// });
-// chrome.browserAction.onClicked.addListener(function() {
-
-
-// });

@@ -15,8 +15,6 @@ def main():
         ID, Name = GetExtID(args.link)   #get ID, ext name
         if (CheckMongoDB(ID) == None):
             Extdir = SearchByID(ID)
-            # print(Extdir[0][2])
-            # Extdir = DownloadAndExtractExt(ID, Name)   #return result in DB
             if ("not found" not in Extdir):
                 collection = ConnectMongoDB("Analyzer")
                 ExtensionAnalyzer(collection, ID, Extdir[0][2])
@@ -29,7 +27,6 @@ def main():
                 ExtensionAnalyzer(collection, ID, Extdir)
         print(ID)
 
-        # ExtensionAnalyzer(ID, 'G:\\New\\Extensions\\SOURCE\\WEB\\extension-info\\core\\analyzer\\Data\\shard=0&numshards=992\\' + Ext)
     elif args.all:
         collection = ConnectMongoDB("Analyzer")
         get_count = collection.estimated_document_count()

@@ -9,7 +9,7 @@ def init_database(collection):
 
 mycol = init_database("DNS")
 extension_folder = r"C:\Users\navi\Desktop\KhoaLuan\extensions"
-extension_list = extension_list = next(os.walk(extension_folder))[1]
+extension_list = next(os.walk(extension_folder))[1]
 for idx in extension_list:
     collection_dns = mycol.find({"idx":idx})
     dns_domain_whitelist = []
