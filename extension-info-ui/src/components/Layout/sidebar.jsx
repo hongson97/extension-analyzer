@@ -9,9 +9,9 @@ class SideBar extends Component {
     this.state = {};
   }
 
-  componentDidMount() {}
+  componentDidMount() { }
 
-  renderAnalyzeResult() {}
+  renderAnalyzeResult() { }
 
   render() {
     const isShowResultItem = this.props.analyze.analyzeItem.isShow;
@@ -27,114 +27,117 @@ class SideBar extends Component {
       <div>
         <hr />
 
-      <h6
-        className="sidebar-heading justify-content-between align-items-center text-center text-muted"
-        style={{ marginTop: "1px !important" }}
-      >
-        <span>STATIC ANALYSE</span>
-      </h6>
+        <h6
+          className="sidebar-heading justify-content-between align-items-center text-center text-muted"
+          style={{ marginTop: "1px !important" }}
+        >
+          <span>STATIC ANALYSE</span>
+        </h6>
 
-      <hr />
+        <hr />
       </div>,
       <li
-      style={{cursor: 'pointer'}}
-        className="nav-item permissions-nav"  onClick={() => this.handleOnChangeView(1)}>
-        <a className={`nav-link` }> 
-        
+        style={{ cursor: 'pointer' }}
+        className="nav-item permissions-nav" onClick={() => this.handleOnChangeView(1)}>
+        <a className={`nav-link`}>
+
           {" "}
           <i className="icon-paragraph-left2 mr-1"></i> Permission
         </a>
       </li>,
-      <li style={{cursor: 'pointer'}} 
-      className="nav-item" onClick={() => this.handleOnChangeView(2)}>
+      <li style={{ cursor: 'pointer' }}
+        className="nav-item" onClick={() => this.handleOnChangeView(2)}>
         <a className="nav-link">
           {" "}
           <i className="icon-shield-notice mr-1"></i> CSP
         </a>
       </li>,
-      <li style={{cursor: 'pointer'}} className="nav-item" onClick={() => this.handleOnChangeView(3)}>
+      <li style={{ cursor: 'pointer' }} className="nav-item" onClick={() => this.handleOnChangeView(3)}>
         <a className="nav-link">
           {" "}
           <i className="icon-code mr-1"></i> Content Script
         </a>
       </li>,
-      <li style={{cursor: 'pointer'}} className="nav-item" onClick={() => this.handleOnChangeView(4)}>
+      <li style={{ cursor: 'pointer' }} className="nav-item" onClick={() => this.handleOnChangeView(4)}>
         <a className="nav-link">
           {" "}
           <i className="icon-accessibility mr-1"></i> API
         </a>
       </li>,
-            <div>
-            <hr />
-    
-          <h6
-            className="sidebar-heading justify-content-between align-items-center text-center text-muted"
-            style={{ marginTop: "1px !important" }}
-          >
-            <span>DYNAMIC ANALYSE</span>
-          </h6>
-    
-          <hr />
-          </div>,
+      <div>
+        <hr />
+
+        <h6
+          className="sidebar-heading justify-content-between align-items-center text-center text-muted"
+          style={{ marginTop: "1px !important" }}
+        >
+          <span>DYNAMIC ANALYSE</span>
+        </h6>
+
+        <hr />
+      </div>,
 
       <li
-      style={{cursor: 'pointer'}} className="nav-item permissions-nav" onClick={() => this.handleOnChangeView(6)}>
-      <a className="nav-link">
-        {" "}
-        <i className="icon-paragraph-left2 mr-1"></i> Result
+        style={{ cursor: 'pointer' }} className="nav-item permissions-nav" onClick={() => this.handleOnChangeView(6)}>
+        <a className="nav-link">
+          {" "}
+          <i className="icon-paragraph-left2 mr-1"></i> Result
       </a>
       </li>,
-    <li style={{cursor: 'pointer'}} className="nav-item" onClick={() => this.handleOnChangeView(7)}>
-      <a className="nav-link">
-        {" "}
-        <i className="icon-shield-notice mr-1"></i> API Calls
+      <li style={{ cursor: 'pointer' }} className="nav-item" onClick={() => this.handleOnChangeView(7)}>
+        <a className="nav-link">
+          {" "}
+          <i className="icon-shield-notice mr-1"></i> API Calls
       </a>
-    </li>,
-    <li style={{cursor: 'pointer'}} className="nav-item" onClick={() => this.handleOnChangeView(8)}>
-      <a className="nav-link">
-        {" "}
-        <i className="icon-code mr-1"></i> Network
+      </li>,
+      <li style={{ cursor: 'pointer' }} className="nav-item" onClick={() => this.handleOnChangeView(8)}>
+        <a className="nav-link">
+          {" "}
+          <i className="icon-code mr-1"></i> Network
       </a>
-    </li>,
-    <li style={{cursor: 'pointer'}} className="nav-item" onClick={() => this.handleOnChangeView(9)}>
-    <a className="nav-link">
-      {" "}
-      <i className="icon-code mr-1"></i> DNS
+      </li>,
+      <li style={{ cursor: 'pointer' }} className="nav-item" onClick={() => this.handleOnChangeView(9)}>
+        <a className="nav-link">
+          {" "}
+          <i className="icon-code mr-1"></i> DNS
     </a>
-  </li>,
+      </li>,
     ];
 
     return (
       <nav className="col-md-2 d-none d-md-block bg-light sidebar">
         <div className="sidebar-sticky">
-          <ul className="nav flex-column mb-2">
-            <li
-              style={{ cursor: "pointer" }}
-              className="nav-item manifest-viewer-link-nav"
-              onClick={() => this.handleOnChangeView(5)}
-            >
-              <a className="nav-link">
-                {" "}
-                <i className="fa fa-pie-chart" aria-hidden="true"></i> Static
-                Statistics
+          {!isShowResultItem && (
+            <>
+              <ul className="nav flex-column mb-2">
+                <li
+                  style={{ cursor: "pointer" }}
+                  className="nav-item manifest-viewer-link-nav"
+                  onClick={() => this.handleOnChangeView(5)}
+                >
+                  <a className="nav-link">
+                    {" "}
+                    <i className="fa fa-pie-chart" aria-hidden="true"></i> Static
+                    Statistics
               </a>
-            </li>
-          </ul>
+                </li>
+              </ul>
 
-          <ul className="nav flex-column mb-2">
-            <li
-              style={{ cursor: "pointer" }}
-              className="nav-item manifest-viewer-link-nav"
-              onClick={() => this.handleOnChangeView(5)}
-            >
-              <a className="nav-link">
-                {" "}
-                <i className="fa fa-pie-chart" aria-hidden="true"></i> Dynamic
-                Statistics
+              <ul className="nav flex-column mb-2">
+                <li
+                  style={{ cursor: "pointer" }}
+                  className="nav-item manifest-viewer-link-nav"
+                  onClick={() => this.handleOnChangeView(5)}
+                >
+                  <a className="nav-link">
+                    {" "}
+                    <i className="fa fa-pie-chart" aria-hidden="true"></i> Dynamic
+                    Statistics
               </a>
-            </li>
-          </ul>
-
+                </li>
+              </ul>
+            </>
+          )}
           <ul className="nav flex-column mb-2">
             {isShowResultItem ? analyzeResultList : null}
           </ul>

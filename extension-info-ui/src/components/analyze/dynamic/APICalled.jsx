@@ -2,6 +2,7 @@ import {connect} from "react-redux";
 import React, {Component} from 'react'
 import ReactTable from 'react-table'
 import Highlight from 'react-highlight'
+import moment from 'moment'
 import '../../../../node_modules/highlight.js/styles/googlecode.css'
 
 class APICalled extends Component {
@@ -39,12 +40,12 @@ class APICalled extends Component {
           {
             Header: 'Page Url',
             style: {'whiteSpace': 'unset'},
-            accessor: "args"
+            accessor: "pageUrl"
           },
           {
             Header: 'Other',
             style: {'whiteSpace': 'unset'},
-            accessor: "args"
+            accessor: "other"
           },
           
         ]
@@ -59,16 +60,18 @@ class APICalled extends Component {
     
     const newApiData = rawApiData.api_called.map(item => {
         
-        if(typeof item.pageTitle === 'undefined')
-        {
-            console.log(item.pageTitle)
-            return {
-            ...item,
-            pageTitleEmpty: ``
-            }   
-        }
+        let pageTitle = ''
+        if(typeof item.pageTitle !== 'undefined') pageTitle = item.pageTitle
+        let pageUrl =''
+        let other =''
+        if(typeof item.pageUrl !== 'undefined') pageUrl = item.pageUrl
+        if(typeof item.other !== 'undefined') other = JSON.stringify(item.other)
         return {
           ...item,
+          time: moment(item.time).format('D/M/YY H:m:s'),
+          pageTitle,
+          pageUrl,
+          other
         }
       })
 

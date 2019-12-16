@@ -13,7 +13,6 @@ def main():
     args = parser.parse_args()
     if args.link:
         ID, Name = GetExtID(args.link)   #get ID, ext name
-
         Extdir = DownloadAndExtractExt(ID, Name)   #return result in DB
         if Extdir == "Already":  #Already in DB
             pass
