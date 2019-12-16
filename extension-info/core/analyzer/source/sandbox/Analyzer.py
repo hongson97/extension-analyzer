@@ -225,7 +225,7 @@ def GetAllCookiesTracking(api_of_extension):
     return False
 
 white_list_http = ["https://fbsbx.com/ajax/bz","https://www.paypal.com/signin/client-log","https://www.amazon.com/gp/recent-history-footer/external/rhf-handler.html","https://www.paypal.com/auth/verifychallenge"]
-white_list_testcase =["facebook","fb","google","timo","paypal","amazon","shopee","twitter","bitdefender","norton","kaspersky","eset","myvisualiq"]
+white_list_testcase =["facebook","fb","google","timo","paypal","amazon","shopee","twitter","bitdefender","norton","kaspersky","eset","myvisualiq","microsoft"]
 def NetworkRequest4xxTracking(idx):
     http_request_4xx = []
     mycol = init_database("NETWORK")
@@ -254,6 +254,10 @@ def DnsResponseTracking(idx):
     mycol = init_database("DNS")
     list_dns_of_idx = mycol.find({"idx":idx})
     for dns_record in list_dns_of_idx:
+        matches = [x for x in white_list_testcase if x in dns_record["request"]["qname"][:-1]]
+
+        if(len(matches)!=0):
+            continue
         if(dns_record["request"]["qname"][:-1] in dns_domain_whitelist):
             continue
         if("response" not in dns_record):

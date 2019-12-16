@@ -3,7 +3,7 @@ import React, {Component} from 'react'
 import ReactTable from 'react-table'
 import Highlight from 'react-highlight'
 import '../../../../node_modules/highlight.js/styles/googlecode.css'
-
+import moment from 'moment'
 class DNS extends Component {
   constructor(props) {
     super(props)
@@ -69,11 +69,14 @@ class DNS extends Component {
           request: {
             ...item.request,
             source: `${item.request.source_ip}:${item.request.source_port}`
+            
           },
           response: {
             ...item.response,
                source: ``
-          }
+               
+          },
+          time: moment(item.time).format('D/M/YY H:m:s')
         }
       }
       let result = item.response.resolver.IP
@@ -104,7 +107,8 @@ class DNS extends Component {
             source: `${item.response.source_ip}:${item.response.source_port}`,
             ip_server: result,
             cname_domain : result_cname
-        }
+        },
+        time: moment(item.time).format('D/M/YY H:m:s')
       }
     })
     console.log(newApiData)
