@@ -20,7 +20,7 @@ from pathlib import Path
 
 
 cwd = os.path.abspath(os.path.dirname(sys.argv[0]))
-database = cwd + r"\Extensions.db"
+database = cwd + r"\ExtensionDb.db"
 
 mycol_network = init_database("NETWORK")
 mycol_report = init_database("REPORT")
@@ -141,7 +141,7 @@ def checking_report(idx):
     return False
 if __name__ == "__main__":
     #Inet database connection
-    if(sys.argv[1] == "-a"):
+    if(sys.argv[1] == "-a"): #
         for count in range(len(GetListExt(database))):            
             IDX, PathExt = GetListExt(database)[count]
             print("[+] Extension:",IDX)
@@ -150,7 +150,7 @@ if __name__ == "__main__":
             else:
                 AnalyzerDynamic(mycol_network,IDX,PathExt)
     
-    if(sys.argv[1] == "-l"):
+    if(sys.argv[1] == "-l"):  #
         id_ext,name_ext = GetExtID(sys.argv[2])
         IDX,PathExt = SearchByID(id_ext)[0]
         send_real_idx(IDX)
@@ -162,7 +162,7 @@ if __name__ == "__main__":
         else:
             AnalyzerDynamic(mycol_network,IDX,PathExt)
 
-    if(sys.argv[1] == "-m"):
+    if(sys.argv[1] == "-m"):  #
         print("[+]Starting...")
         high_risk_extension_id = GetExtensionHighRisk()
         for idx in high_risk_extension_id:

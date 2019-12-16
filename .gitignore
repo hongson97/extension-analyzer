@@ -98,3 +98,8 @@ public/
 # End of https://www.gitignore.io/api/node
 *.pyc
 *.har
+extension-info/.vscode/settings.json
+extension-info/core/analyzer/source/sandbox/testcase.py
+extension-info/core/analyzer/source/sandbox/testcase.py
+extension-info/core/analyzer/source/sandbox/ExtensionDb.db
+*.log
