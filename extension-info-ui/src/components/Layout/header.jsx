@@ -26,7 +26,7 @@ class Header extends Component {
                // value='https://chrome.google.com/webstore/detail/onenote-web-clipper/gojbdfnpnhogfdgjbigejoaolejmgdhk?hl=vi'
                className="chrome-extension-input form-control form-control-dark w-100"
                type="text"
-               value="https://chrome.google.com/webstore/detail/save-to-facebook/jmfikkaogpplgnfjmbjdpalkhclendgd?utm_source=chrome-ntp-icon"
+              //  value="https://chrome.google.com/webstore/detail/save-to-facebook/jmfikkaogpplgnfjmbjdpalkhclendgd?utm_source=chrome-ntp-icon"
                placeholder="https://chrome.google.com/webstore/detail/example-extension-name/kbfnbca..."/>
         <ul className="navbar-nav px-3">
           <li className="nav-item text-nowrap">
