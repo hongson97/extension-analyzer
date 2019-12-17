@@ -76,7 +76,7 @@ class DNS extends Component {
                source: ``
                
           },
-          time: moment(item.time).format('D/M/YY H:m:s')
+          time: moment.unix(item.time).format('D/M/YY H:m:s')
         }
       }
       let result = item.response.resolver.IP
@@ -108,7 +108,7 @@ class DNS extends Component {
             ip_server: result,
             cname_domain : result_cname
         },
-        time: moment(item.time).format('D/M/YY H:m:s')
+        time: moment.unix(item.time).format('D/M/YY H:m:s')
       }
     })
     console.log(newApiData)
