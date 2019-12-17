@@ -13,53 +13,153 @@ class API extends Component {
         columns: [
           {
             Header: "API name",
-            maxWidth: 500,
-            accessor: 'api'
+            width: 800,
+            accessor: "api"
           },
           {
             Header: "Times",
-            accessor: 'apis.value',
-            style: {'whiteSpace': 'unset', 
-                      'text-center': 'set'}
+            width: 200,
+            accessor: "rawApiData"
+          }
+        ]
+      },
+      behavior_table: {
+        columns: [
+          {
+            Header: "Behavior name",
+            width: 800,
+            accessor: "name"
+          }
+        ]
+      },
+      subTable: {
+        columns: [
+          {
+            //1st columnn
+            Header: 'Type',
+            accessor: 'type',
+            width: 800
           },
-
-        ],
-        
+          {
+            //2nd columnn
+            Header: 'value',
+            // accessor: 'line_number',
+            minWidth: 50,
+            maxWidth: 50,
+            accessor: "value"
+          },
+        ]
+      },
+      subTableHTTP: {
+        columns: [
+          {
+            //1st columnn
+            Header: 'Domain',
+            accessor: 'domain',
+            width: 800
+          },
+          {
+            //2nd columnn
+            Header: '4xx Error Code',
+            // accessor: 'line_number',
+            minWidth: 150,
+            maxWidth: 150,
+            accessor: "errCode"
+          },
+        ]
       }
-    }
+    };
   }
 
   render() {
     const rawApiData = this.props.analyze.result_dynamic.result.Report.apis   //change this when have database
-    console.log(this.props.Report)
     console.log(rawApiData)
-    const apiData = Object.keys(rawApiData).map(i => {
-      return Object.assign({  }, {api: i}, rawApiData[i])
+    let apiData = [];
+    Object.keys(rawApiData).forEach(i => {
+      apiData.push({
+        api : i,
+        rawApiData: rawApiData[i]
+      })
     })
     console.log(apiData)
+    let behaviorNames = ['uninstall_other_extension', 'prevents_extension_uninstall', 'keylogging_functionality', 'steal_information_form', 'block_antivirus_site', 
+    'deleted_response_headers', 'injects_dynamic_javascript', 'get_all_cookies', 'http_request_4xx'];
+    let behavior = behaviorNames.map(behaviorName=> {
+      return {
+        name: behaviorName
+      }
+    })
+
+    let fake = []
+
+    let  behaviorData = {};
+    behaviorNames.forEach(behaviorName => {
+      //console.log('------xxxxxbe', this.props.analyze.result_dynamic.result.Report )
+      let rawApiData =  this.props.analyze.result_dynamic.result.Report[behaviorName]
+      let myData = rawApiData.map(e => {
+        if(behaviorName !== "http_request_4xx")
+        return {
+          type: e.activityType,
+          value: e.apiCall
+        }
+        return {
+          domain: Object.keys(e)[0],
+          errCode: Object.values(e)[0]
+        }
+      })
+      behaviorData = {
+        ...behaviorData,
+        [behaviorName] : myData,
+      }
+    })
+
+
     return (
-      
       <div>
-        <h2>Number has called: {this.props.analyze.result_dynamic.result.Report.total_api} </h2>
-      <h2> 123</h2>
+        <h2 className="text-center">Numbers of API has called: {this.props.analyze.result_dynamic.result.Report.total_api} </h2>
+      <h2>API name</h2>
       <ReactTable
         showPagination={false}
         defaultPageSize={apiData ? apiData.length : 5}
         data={apiData}
+
         columns={this.state.table.columns}/>
         <br></br>
-      <h5> ABC</h5>
+
+      <h5> Behaviors</h5>
         <ReactTable
         showPagination={false}
-        defaultPageSize={apiData ? apiData.length : 5}
-        data={apiData}
-        columns={this.state.table.columns}/>
+        data={behavior}
+        defaultPageSize={behavior.length !== 0 ? behavior.length : 5}
+        data={behavior}
+        columns={this.state.behavior_table.columns}
+        SubComponent={row => {
+          if(row.original.name === "http_request_4xx"){
+            return (
+              <div style={{padding: '20px'}}>
+                <ReactTable
+                  data={behaviorData[row.original.name]}
+                  columns={this.state.subTableHTTP.columns}
+                  defaultPageSize={behaviorData[row.original.name].length}
+                />
+              </div>
+            )
+          }
+          return  (
+            <div style={{padding: '20px'}}>
+              <ReactTable
+                data={behaviorData[row.original.name]}
+                columns={this.state.subTable.columns}
+                defaultPageSize={behaviorData[row.original.name].length}
+              />
+            </div>
+          )
+        }}
+        />
         </div>
     )
   }
-
 }
-
 const mapStateToProps = state => ({
   ...state
 })

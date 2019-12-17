@@ -11,7 +11,9 @@ class ContentScript extends Component {
   render() {
     const contentScriptData = this.props.analyze.result.content_scripts
 
+    if (contentScriptData.length !== 0) {
     return (
+ 
       <div>
         {
           contentScriptData.map(contentScript => {
@@ -32,58 +34,16 @@ class ContentScript extends Component {
             )
           })
         }
-        {/*<ul className='list-group col-md-6'>*/}
-          {/*<li className='list-group-item active bg-dark'>JS</li>*/}
-          {/*{renderListJS}*/}
-        {/*</ul>*/}
-        {/*<ul className='list-group col-md-6'>*/}
-          {/*<li className='list-group-item active bg-dark'>MATCHES</li>*/}
-          {/*{renderListMATCHES}*/}
-        {/*</ul>*/}
+
       </div>
     )
-
-    // const contentScriptData = this.props.analyze.result.content_scrips
-    // return (
-    //   <div>
-    //     {contentScriptData.map((contentScript, index) => {
-    //       console.log(contentScript, index)
-    //       return (
-    //         <div className='row'>
-    //           <table className='table table-bordered'>
-    //             <thead class="thead-dark">
-    //             <tr>
-    //               <th>JS</th>
-    //               <th>MATCHES</th>
-    //             </tr>
-    //             </thead>
-    //             <tbody>
-    //             {
-    //               contentScript.js.length > contentScript.js.length ?
-    //                 (
-    //                   contentScript.js.map((js, j) => {
-    //                     return <tr>
-    //                       <td></td>
-    //                     </tr>
-    //                   })
-    //                 ) :
-    //                 (
-    //                   contentScript.matches.map((match, j) => {
-    //
-    //                   })
-    //                 )
-    //             }
-    //             <tr>
-    //               <td>{contentScript.js}</td>
-    //               <td>{contentScript.matches}</td>
-    //             </tr>
-    //             </tbody>
-    //           </table>
-    //         </div>
-    //       )
-    //     })}
-    //   </div>
-    // )
+      }
+      else 
+      return (
+        <div className="text-center">
+          <h1>This extension does not have Content Script</h1>
+        </div>
+      );
   }
 
   renderTable(listJss, listMatches) {

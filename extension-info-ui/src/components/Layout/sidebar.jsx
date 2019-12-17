@@ -117,8 +117,7 @@ class SideBar extends Component {
                 >
                   <a className="nav-link">
                     {" "}
-                    <i className="fa fa-pie-chart" aria-hidden="true"></i> Static
-                    Statistics
+                    <i className="fa fa-pie-chart" aria-hidden="true"></i> Static Statistics
               </a>
                 </li>
               </ul>
@@ -131,8 +130,7 @@ class SideBar extends Component {
                 >
                   <a className="nav-link">
                     {" "}
-                    <i className="fa fa-pie-chart" aria-hidden="true"></i> Dynamic
-                    Statistics
+                    <i className="fa fa-pie-chart" aria-hidden="true"></i> Dynamic Statistics
               </a>
                 </li>
               </ul>
