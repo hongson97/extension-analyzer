@@ -11,10 +11,6 @@ import Network from './analyze/dynamic/network'
 import APICalled from './analyze/dynamic/APICalled'
 import DNS from './analyze/dynamic/DNS'
 class Dashboard extends Component {
-  // constructor(props) {
-  //   super(props)
-
-  // }
 
   render() {
     const state = this.props.analyze.state
@@ -61,7 +57,6 @@ class Dashboard extends Component {
                 className="icon-arrow-up52 label-icon-lg mr-3"
                 style={{ fontSize: "1em" }}
               >
-                {" "}
               </i>
               Please submit an extension above to begin
             </h1>

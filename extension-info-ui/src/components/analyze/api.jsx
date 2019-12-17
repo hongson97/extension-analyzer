@@ -102,7 +102,6 @@ class API extends Component {
         }}/>
     )
   }
-
 }
 
 const mapStateToProps = state => ({
