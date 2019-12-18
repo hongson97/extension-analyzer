@@ -29,6 +29,11 @@ class API extends Component {
             Header: "Behavior name",
             width: 800,
             accessor: "name"
+          },
+          {
+            Header: "Times",
+            width: 800,
+            accessor: "times"
           }
         ]
       },
@@ -82,29 +87,35 @@ class API extends Component {
     console.log(apiData)
     let behaviorNames = ['uninstall_other_extension', 'prevents_extension_uninstall', 'keylogging_functionality', 'steal_information_form', 'block_antivirus_site', 
     'deleted_response_headers', 'injects_dynamic_javascript', 'get_all_cookies', 'http_request_4xx'];
+  
     let behavior = behaviorNames.map(behaviorName=> {
       return {
-        name: behaviorName
+        name: behaviorName,
+        times: this.props.analyze.result_dynamic.result.Report[behaviorName].length
       }
     })
+
 
     let  behaviorData = {};
     behaviorNames.forEach(behaviorName => {
       let rawApiData =  this.props.analyze.result_dynamic.result.Report[behaviorName]
+      if (behaviorName =='http_request_4xx'){
+      console.log(behavior) }
       let myData = rawApiData.map(e => {
         if(behaviorName !== "http_request_4xx")
         return {
           type: e.activityType,
-          value: e.apiCall
+          value: e.apiCall,
         }
         return {
           domain: Object.keys(e)[0],
-          errCode: Object.values(e)[0]
+          errCode: Object.values(e)[0],
         }
       })
       behaviorData = {
         ...behaviorData,
         [behaviorName] : myData,
+
       }
     })
 
@@ -123,7 +134,6 @@ class API extends Component {
       <h4> Behaviors</h4>
         <ReactTable
         showPagination={false}
-        data={behavior}
         defaultPageSize={behavior.length !== 0 ? behavior.length : 5}
         data={behavior}
         columns={this.state.behavior_table.columns}
