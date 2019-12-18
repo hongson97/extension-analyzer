@@ -43,7 +43,6 @@ class API extends Component {
           {
             //2nd columnn
             Header: 'value',
-            // accessor: 'line_number',
             minWidth: 50,
             maxWidth: 50,
             accessor: "value"
@@ -61,7 +60,6 @@ class API extends Component {
           {
             //2nd columnn
             Header: '4xx Error Code',
-            // accessor: 'line_number',
             minWidth: 150,
             maxWidth: 150,
             accessor: "errCode"
@@ -90,11 +88,8 @@ class API extends Component {
       }
     })
 
-    let fake = []
-
     let  behaviorData = {};
     behaviorNames.forEach(behaviorName => {
-      //console.log('------xxxxxbe', this.props.analyze.result_dynamic.result.Report )
       let rawApiData =  this.props.analyze.result_dynamic.result.Report[behaviorName]
       let myData = rawApiData.map(e => {
         if(behaviorName !== "http_request_4xx")
@@ -117,16 +112,15 @@ class API extends Component {
     return (
       <div>
         <h2 className="text-center">Numbers of API has called: {this.props.analyze.result_dynamic.result.Report.total_api} </h2>
-      <h2>API name</h2>
+      <h4>API name</h4>
       <ReactTable
         showPagination={false}
         defaultPageSize={apiData ? apiData.length : 5}
         data={apiData}
-
         columns={this.state.table.columns}/>
         <br></br>
 
-      <h5> Behaviors</h5>
+      <h4> Behaviors</h4>
         <ReactTable
         showPagination={false}
         data={behavior}

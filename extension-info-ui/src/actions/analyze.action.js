@@ -35,17 +35,6 @@ export function sendAnalyzeRequest(extensionLink) {
             console.error(err)
         }
         return 0;
-
-        //send request data to server
-        //Get response back and handle
-        // .then(response => {
-        //   console.log(response)
-        //   if (response.data.result)
-        //     dispatch(updateAnalyzeResult(response.data.result))
-        // })
-        // .catch(error => {
-        //   console.error(error)
-        // })
     }
 }
 

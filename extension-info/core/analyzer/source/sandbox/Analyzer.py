@@ -69,7 +69,7 @@ def PreventsUninstallTracking(api_of_extension):
     return False
 
 def KeyloggerTracking(api_of_extension):
-    # Kiem tra apiCall co nam trong danh sach api hanh vi cua keylloging hay khong, cu the la:blinkAddEventListener
+    # Kiem tra apiCall co nam trong danh sach api hanh vi cua keylogging hay khong, cu the la:blinkAddEventListener
     # Neu có api blinkAddEventListener thi kiem tra args duoc truyen vao
     # args [ "#document", "keypress"] hoac "args": [ "#document", "keydown" ] thi return True 
     # -> Extension chua hanh vi cua keylogger
