@@ -161,7 +161,7 @@
             "behavior": [{
                 "activityType": "dom_access",
                 "apiCall": "blinkAddElement",
-                "args": ["https://", "http://", ".js"]
+                "args": ["https://", "http://"]
             }]
         }
     ],

@@ -10,6 +10,7 @@ cwd = os.path.abspath(os.path.dirname(sys.argv[0]))
 api_file = cwd +r"\api.json"	
 path_white_list_dns = cwd + r"\white_list_dns.json"
 
+white_list_testcase =["facebook","fb","google","timo","paypal","amazon","shopee","twitter","bitdefender","norton","kaspersky","eset","myvisualiq","eservice","beacons"]
 
 def init_thesis(collection):
     myclient = pymongo.MongoClient("mongodb://localhost:27017/")
@@ -98,7 +99,7 @@ def StealInformationFormTracking(api_of_extension):
     # Neu co thi extension da inject script vao page de get form thong tin
     # Den day kiem tra xem pageUrl co api blinkAddEventListener voi tham so ["XMLHttpRequest","load"]
     # Neu co kha nang cao se gui thong tin dang nhap ra ngoai
-
+    args_checking_https = ["https://","http://"]
     _behavior_info = GetBehaviorMalicious("steal_information_form")
     for api_of_behavior in (_behavior_info):
         if "behavior" in api_of_behavior:
@@ -120,8 +121,15 @@ def StealInformationFormTracking(api_of_extension):
     if(api_of_extension["apiCall"] in list_name_api_of_behavior): 
         if(api_of_extension["args"] in "[\"FORM\",\"submit\"]"):
             find_activity = mycol.find({"extensionId": api_of_extension["extensionId"],"pageUrl":api_of_extension["pageUrl"],"activityType":"content_script"})
-            if(len(list(find_activity)) != 0):
-                return True
+            for obj in find_activity:
+                for argv in json.loads(obj["args"]):
+                    matches = [x for x in args_checking_https if x in argv]
+                    if(len(matches)!=0):
+                        matches2 =  [x for x in white_list_testcase if x in argv]
+                        if(len(matches2)==0):
+                            return True
+                    else:
+                            continue           
     return False
 
 def BlockAntiVirusSiteTracking(api_of_extension):
@@ -202,8 +210,13 @@ def InjectsDynamicJsTracking(api_of_extension):
     #Tracking APi
     if((api_of_extension["apiCall"] in list_name_api_of_behavior)):
         for args_in_apicall in  json.loads(api_of_extension["args"]):
-            if([x for x in list_args if x in args_in_apicall]):
-                return True
+            matches = [x for x in list_args if x in args_in_apicall]                
+            if(len(matches)!=0):
+                matches2 =  [x for x in white_list_testcase if x in args_in_apicall]
+                if(len(matches2)==0):
+                    return True
+                else:
+                    continue 
     return False
 
 def GetAllCookiesTracking(api_of_extension):
@@ -225,7 +238,6 @@ def GetAllCookiesTracking(api_of_extension):
     return False
 
 white_list_http = ["https://fbsbx.com/ajax/bz","https://www.paypal.com/signin/client-log","https://www.amazon.com/gp/recent-history-footer/external/rhf-handler.html","https://www.paypal.com/auth/verifychallenge"]
-white_list_testcase =["facebook","fb","google","timo","paypal","amazon","shopee","twitter","bitdefender","norton","kaspersky","eset","myvisualiq","microsoft"]
 def NetworkRequest4xxTracking(idx):
     http_request_4xx = []
     mycol = init_database("NETWORK")
@@ -254,12 +266,11 @@ def DnsResponseTracking(idx):
     mycol = init_database("DNS")
     list_dns_of_idx = mycol.find({"idx":idx})
     for dns_record in list_dns_of_idx:
-        matches = [x for x in white_list_testcase if x in dns_record["request"]["qname"][:-1]]
-
-        if(len(matches)!=0):
-            continue
         if(dns_record["request"]["qname"][:-1] in dns_domain_whitelist):
             continue
+        matches = [x for x in white_list_testcase if x in dns_record["request"]["qname"][:-1]]
+        if(len(matches)!=0):
+           continue
         if("response" not in dns_record):
             dns_no_response.append(dns_record)
     return dns_no_response  
@@ -506,4 +517,4 @@ def AnalyzerAllExtension():
     json_parse = json.dumps(result, indent=4)
     open("Report_dynamic.json", "w").write(json_parse)
 if __name__ == "__main__": 
-    AnalyzerAllExtension()
+    AnalyzerOnlyOneExtension("olpeoifdnnbgbakpddikckahaddgjapm")
