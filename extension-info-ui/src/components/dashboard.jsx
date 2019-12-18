@@ -8,6 +8,7 @@ import API from './analyze/api'
 import Statistics from './analyze/statistics'
 import Result from './analyze/dynamic/result'
 import Network from './analyze/dynamic/network'
+import Dynamic from './analyze/dynamics'
 import APICalled from './analyze/dynamic/APICalled'
 import DNS from './analyze/dynamic/DNS'
 class Dashboard extends Component {
@@ -46,9 +47,17 @@ class Dashboard extends Component {
       case 7:
         return <APICalled />;
       case 8:
+      //   raiseInvoiceClicked(){
+      //     // your axios call here
+      //     localStorage.setItem("pageData", "Data Retrieved from axios request")
+      //     // route to new page by changing window.location
+      //     window.open(newPageUrl, "_blank") //to open new page
+      //  }
         return <Network />;
       case 9:
       return <DNS />;
+      case 10:
+      return <Dynamic />;
       default:
         return (
           <div className="d-flex justify-content-center flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
