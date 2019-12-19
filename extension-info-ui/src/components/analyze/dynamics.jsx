@@ -86,7 +86,7 @@ class Dynamic extends Component {
       labels: [
         'Malicious',
         "Suspicious",
-        "Suspicious",
+        "Clean",
       ],
       datasets: [
         {
