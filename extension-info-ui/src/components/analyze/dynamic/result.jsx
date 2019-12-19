@@ -95,7 +95,6 @@ class API extends Component {
       }
     })
 
-
     let  behaviorData = {};
     behaviorNames.forEach(behaviorName => {
       let rawApiData =  this.props.analyze.result_dynamic.result.Report[behaviorName]
