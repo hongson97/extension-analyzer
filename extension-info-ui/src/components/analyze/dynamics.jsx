@@ -112,7 +112,7 @@ class Dynamic extends Component {
         <div className="row">
           <div className="col-md-6">
             <center>
-              <h3>Top 10 Extensions malicious</h3>
+              <h3>Top 10 Malicious Extensions </h3>
             </center>
             <ReactTable
               className="table table-light text-center"
@@ -124,7 +124,7 @@ class Dynamic extends Component {
           </div>
           <div className="col-md-6">
             <center>
-              <h3>Top API called</h3>
+              <h3>Top 10 API called</h3>
             </center>
             <ReactTable
               className="table table-light text-center"
@@ -137,7 +137,7 @@ class Dynamic extends Component {
           <div className="col-md-6">
             <center>
               <h3>
-                Top 10 Behevior sort
+                Top 10 Behavior
               </h3>
             </center>
             <ReactTable
