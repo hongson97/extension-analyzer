@@ -1,0 +1,229 @@
+{
+    "Total": 971,
+    "Malicious": 14,
+    "Suspicious": 59,
+    "Clean": 898,
+    "top_10_api_called": {
+        "blinkRequestResource": 71307,
+        "blinkAddEventListener": 45482,
+        "webRequestInternal.eventHandled": 43921,
+        "blinkAddElement": 22711,
+        "Storage.getItem": 15870,
+        "webRequest.onBeforeRequest/1": 15141,
+        "webRequest.onHeadersReceived/1": 14605,
+        "webRequest.onBeforeSendHeaders/1": 10228,
+        "tabs.onUpdated": 9561,
+        "webRequest.onBeforeSendHeaders": 8504
+    },
+    "top_10_extension_malicious": [
+        {
+            "id": "fbjgjenagnpciigonkijpkclmlegjgio",
+            "count": 2,
+            "behavior": [
+                "injects_dynamic_javascript",
+                "http_request_4xx"
+            ]
+        },
+        {
+            "id": "lccgdacegobcbgehhipigookljahhpic",
+            "count": 2,
+            "behavior": [
+                "keylogging_functionality",
+                "http_request_4xx"
+            ]
+        },
+        {
+            "id": "iekdaegkmghillhfecnncgepaapdfcgf",
+            "count": 2,
+            "behavior": [
+                "get_all_cookies",
+                "http_request_4xx"
+            ]
+        },
+        {
+            "id": "blogafajockjgpjghpfhcbjaggbbdbmk",
+            "count": 2,
+            "behavior": [
+                "get_all_cookies",
+                "http_request_4xx"
+            ]
+        },
+        {
+            "id": "noaijdpnepcgjemiklgfkcfbkokogabh",
+            "count": 2,
+            "behavior": [
+                "keylogging_functionality",
+                "injects_dynamic_javascript"
+            ]
+        },
+        {
+            "id": "adhdoojkhchjmgjonahaoopmiejjffbl",
+            "count": 2,
+            "behavior": [
+                "get_all_cookies",
+                "http_request_4xx"
+            ]
+        },
+        {
+            "id": "honpdlfmgclajdabmncpbkoojglkapjd",
+            "count": 1,
+            "behavior": [
+                "http_request_4xx"
+            ]
+        },
+        {
+            "id": "dhjncmmeojfgoflpcnchmaiocckanoki",
+            "count": 1,
+            "behavior": [
+                "uninstall_other_extension"
+            ]
+        },
+        {
+            "id": "jkgobpelebabhhpcfipkiigabdfmamcg",
+            "count": 1,
+            "behavior": [
+                "http_request_4xx"
+            ]
+        },
+        {
+            "id": "cajljomaiaoimeiabcpcihbhhaapjhhn",
+            "count": 1,
+            "behavior": [
+                "http_request_4xx"
+            ]
+        }
+    ],
+    "top_behavior_sorted": [
+        {
+            "name": "http_request_4xx",
+            "count": 32,
+            "extension": [
+                "honpdlfmgclajdabmncpbkoojglkapjd",
+                "jkgobpelebabhhpcfipkiigabdfmamcg",
+                "cajljomaiaoimeiabcpcihbhhaapjhhn",
+                "omljlibfjloccmdmmlpcnlijjneabhjm",
+                "djhpeadghlkdbmidackaccggdhlgmgfh",
+                "lfkfmnckbiedjibakkanendebnigobdk",
+                "dmoipkcagcphpnehdjphmkodklhcknci",
+                "nnjlioombgcokbngcjfhjkigglkiagmn",
+                "eadldncondnnbbdgfncjoheallemkcjb",
+                "kkkbndioipnhdheepeaeaifmoaojiomk",
+                "anfmnpldjhofcdibjploijmpndmnamac",
+                "fbjgjenagnpciigonkijpkclmlegjgio",
+                "lccgdacegobcbgehhipigookljahhpic",
+                "hkoabjabjdigonioccggjnlmakdlhijd",
+                "iekdaegkmghillhfecnncgepaapdfcgf",
+                "feapilfcgikmmcdhledhnaefdjjfdomm",
+                "bpmhaffellhamkbbaejfpebkencokekb",
+                "blogafajockjgpjghpfhcbjaggbbdbmk",
+                "mhfogmopdlmggoehklcnjimlnhgdllbh",
+                "cbkeilfjfgflmjhohjkcecfbfbimpmkp",
+                "ckjefchnfjhjfedoccjbhjpbncimppeg",
+                "ionhkjfbhlohocgmnfffhkefmfdaecmd",
+                "fbjgjenagnpciigonkijpkclmlegjgio",
+                "ccggeoejlfiniobamfodnpglockgogcj",
+                "ldmhloggnnjgknomaklgglgnphllicfe",
+                "adhdoojkhchjmgjonahaoopmiejjffbl",
+                "icnadnppbkmjkefghbeinidkjegenaai",
+                "lcekcmdnalilkloaljbfcamcijcgckge",
+                "ijbmegpphhffgfoakgkibcaomkdionfi",
+                "gcgfjdljkhkogdnhpbolcbedegobfdbf",
+                "coajfhdngcebdkhohiflcckeflbgeiai",
+                "bmaenjbgjoddegekfojbcaggpjanomba"
+            ]
+        },
+        {
+            "name": "get_all_cookies",
+            "count": 19,
+            "extension": [
+                "ffmpfnfeocophimbkabhamodpfpfhkik",
+                "kcofhnbdfheaejmcmigdmafbpelgecjh",
+                "pdfcllhgolficemkblppcmkllpfhohkl",
+                "jgmpabnlipiakbfhadcaiapdgfijnadc",
+                "aikldfgbojffdkcmdbpfgkojfcafgcgn",
+                "ijpkhfkeleoeadahbcnkdghcfoipbjdn",
+                "lncmcdicbmefndepamlbbbdjhhldefog",
+                "ijeilcaplgkhihpammopbfhlefpjmplk",
+                "bobcgoocmjdpjnkelkigjfihikkcaigf",
+                "iekdaegkmghillhfecnncgepaapdfcgf",
+                "blogafajockjgpjghpfhcbjaggbbdbmk",
+                "nkcajeaghingeedjbnpmghdalnhegjgc",
+                "ebiicdjcicgaocbcbejfcmhcplccadmj",
+                "fbjbacfeofgcenicnoghjndflgfblglh",
+                "bdjljpbgakpmcjggffpmlpdagojllpml",
+                "ebjbidheolfncmnfnokhboigagbbimil",
+                "adhdoojkhchjmgjonahaoopmiejjffbl",
+                "cblmcdbkofcfoneikekbedgjjfkndmcp",
+                "boiofejlgkohmbelhfficmfpbffbncpj"
+            ]
+        },
+        {
+            "name": "injects_dynamic_javascript",
+            "count": 14,
+            "extension": [
+                "hnfaomhknngggopoelajfnfljjjplfmb",
+                "lcagicophkncmfniedjonpdceeamconf",
+                "klefijoenanbiggmgfedpjdibhppoaob",
+                "cnclnojeoppcdphgnfhjfdijgmkocnmn",
+                "abejgnlandcdgobmjaomaoldggjmhkae",
+                "ipbhneeanpgkaleihlknhjiaamobkceh",
+                "fbjgjenagnpciigonkijpkclmlegjgio",
+                "noaijdpnepcgjemiklgfkcfbkokogabh",
+                "coajjghopooedcgnphpmcppnpfalakca",
+                "daogcmnmmklbgfbofimaadiackbindln",
+                "iopdajdlplolageepliokdopipphmgan",
+                "dkknjfebbiplkegpmmjbfgfmaockdejb",
+                "olpeoifdnnbgbakpddikckahaddgjapm",
+                "ncaobmonjkkomdfmfhbibmihenikmjhn"
+            ]
+        },
+        {
+            "name": "keylogging_functionality",
+            "count": 8,
+            "extension": [
+                "oanbjedaejkmdbgggefonekmppcaiknf",
+                "lccgdacegobcbgehhipigookljahhpic",
+                "hmaflaokeodbfghjjgmakejjjjfhihpi",
+                "oijhbmbgaocagcmnlhhfenkenfpfgigf",
+                "noaijdpnepcgjemiklgfkcfbkokogabh",
+                "hghdhiodkbbogfnbhknleobjjpadlmcc",
+                "hcdhhgmjcdacdogkopooepahclggnhae",
+                "bmhfhkggfdfghlpffhimeniaddhkmdfl"
+            ]
+        },
+        {
+            "name": "deleted_response_headers",
+            "count": 3,
+            "extension": [
+                "gifgpciglhhpmeefjdmlpboipkibhbjg",
+                "ebnfcbdjkoennginpomikglfbdlgnppm",
+                "aeifbleofjbfckemgmbiencieegkdlgk"
+            ]
+        },
+        {
+            "name": "block_antivirus_site",
+            "count": 2,
+            "extension": [
+                "icafcmbandfdgoefcpaidglbpcflmnma",
+                "cjpalhdlnbpafiamejdnhcphjbkeiagm"
+            ]
+        },
+        {
+            "name": "uninstall_other_extension",
+            "count": 1,
+            "extension": [
+                "dhjncmmeojfgoflpcnchmaiocckanoki"
+            ]
+        },
+        {
+            "name": "prevents_extension_uninstall",
+            "count": 0,
+            "extension": []
+        },
+        {
+            "name": "steal_information_form",
+            "count": 0,
+            "extension": []
+        }
+    ]
+}

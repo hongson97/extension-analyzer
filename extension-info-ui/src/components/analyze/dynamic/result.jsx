@@ -27,7 +27,7 @@ class API extends Component {
         columns: [
           {
             Header: "Behavior name",
-            width: 800,
+            width: 1000,
             accessor: "name"
           },
           {

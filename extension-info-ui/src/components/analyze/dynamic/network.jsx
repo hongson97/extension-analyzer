@@ -19,7 +19,7 @@ class API extends Component {
     render(){
         return(
                 <div className="modal-body">
-                  CLGT
+                  
                      <span dangerouslySetInnerHTML={this.rawMarkup()} />
 
                 </div>
