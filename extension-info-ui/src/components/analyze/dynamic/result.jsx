@@ -14,12 +14,14 @@ class API extends Component {
           {
             Header: "API name",
             width: 800,
-            accessor: "api"
+            accessor: "api",
+            className: "text-center"
           },
           {
             Header: "Times",
             width: 200,
-            accessor: "rawApiData"
+            accessor: "rawApiData",
+            className: "text-center"
           }
         ]
       },
@@ -27,30 +29,48 @@ class API extends Component {
         columns: [
           {
             Header: "Behavior name",
-            width: 1000,
-            accessor: "name"
+            width: 800,
+            accessor: "name",
+            className: "text-center"
           },
           {
             Header: "Times",
             width: 800,
-            accessor: "times"
+            accessor: "times",
+            className: "text-center"
           }
         ]
       },
       subTable: {
         columns: [
+    
           {
             //1st columnn
             Header: 'Type',
             accessor: 'type',
-            width: 800
+            width: 200,
+            className: "text-center"
           },
           {
             //2nd columnn
-            Header: 'value',
-            minWidth: 50,
-            maxWidth: 50,
-            accessor: "value"
+            Header: 'Value',
+            Width: 200,
+            accessor: "value",
+            className: "text-center"
+          },
+          {
+            //3rd columnn
+            Header: 'Args',
+            Width: 200,
+            accessor: "args",
+            className: "text-center"
+          },
+          {
+            //4th columnn
+            Header: 'Other',
+            Width: 200,
+            accessor: "other",
+            className: "text-center"
           },
         ]
       },
@@ -60,14 +80,16 @@ class API extends Component {
             //1st columnn
             Header: 'Domain',
             accessor: 'domain',
-            width: 800
+            width: 800,
+            className: "text-center"
           },
           {
             //2nd columnn
             Header: '4xx Error Code',
             minWidth: 150,
             maxWidth: 150,
-            accessor: "errCode"
+            accessor: "errCode",
+            className: "text-center"
           },
         ]
       }
@@ -98,13 +120,16 @@ class API extends Component {
     let  behaviorData = {};
     behaviorNames.forEach(behaviorName => {
       let rawApiData =  this.props.analyze.result_dynamic.result.Report[behaviorName]
-      if (behaviorName =='http_request_4xx'){
-      console.log(behavior) }
+      console.log(rawApiData)
       let myData = rawApiData.map(e => {
         if(behaviorName !== "http_request_4xx")
         return {
           type: e.activityType,
           value: e.apiCall,
+          args: e.args,
+          other: e.other.webRequest 
+
+
         }
         return {
           domain: Object.keys(e)[0],
