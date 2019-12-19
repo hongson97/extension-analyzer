@@ -77,11 +77,11 @@ class Statistics extends Component {
     
     const pieChartData = {
       labels: [
-        'above 50',
-        "above 30",
-        "above 15",
-        "below 15",
-        'etc'
+        'Above 50',
+        "Above 30",
+        "Above 15",
+        "Below 15",
+        'Safe'
       ],
       datasets: [
         {

@@ -381,9 +381,13 @@ def ExtensionAnalyzer(collection, ext_id, root_path):
 def GetReport(id): #Lay report
     print("Output\\"+ValidFilename(id, ":<|>\"/\\?*")+".json")
 
-def GenReport(collection): #Generate file Report.json from database
+def GenReport(collection): #Generate file Report.json and insert "Report" document to MongdoDB from database
     print("Generating reports...\n")
-    result = dict(perms_avg=0, perms_highest={}, warn_perms_avg=0, top_10_ext_perms=[], top_10_ext_warn_perms=[], top_10_ext_high_risk=[], top_perms=[], top_warn_perms=[], analyzed_ext=0, above_50=0, above_30=0, above_15=0, below_15=0, etc=0, api_avg=0, top_api=[], top_domain_perms=[], top_content_scripts_domain=[])
+    result = dict(perms_avg=0, perms_highest={}, warn_perms_avg=0, top_10_ext_perms=[], 
+    top_10_ext_warn_perms=[], top_10_ext_high_risk=[], top_perms=[], top_warn_perms=[], 
+    analyzed_ext=0, above_50=0, above_30=0, above_15=0, below_15=0, etc=0, api_avg=0, 
+    top_api=[], top_domain_perms=[], top_content_scripts_domain=[])
+    
     result['perms_highest'] = dict(name=[], quantity=0)
     total_perms = 0
     total_extensions = 0
@@ -536,10 +540,6 @@ def GenReport(collection): #Generate file Report.json from database
         if count > 10:
             break
         result['top_api'].append(e)
-    # for e in sorted(total_top_api.items(), key=operator.itemgetter(1), reverse=True): #Print out top API
-    #     print(e)
-    #     print("\n")
-
     count = 0
     for e in sorted(total_top_domain_perms.items(), key=operator.itemgetter(1), reverse=True): #sort total top permissions
         count += 1
