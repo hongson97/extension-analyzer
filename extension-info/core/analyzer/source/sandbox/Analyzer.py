@@ -70,7 +70,7 @@ def PreventsUninstallTracking(api_of_extension):
     return False
 
 def KeyloggerTracking(api_of_extension):
-    # Kiem tra apiCall co nam trong danh sach api hanh vi cua keylogging hay khong, cu the la:blinkAddEventListener
+    # Kiem tra apiCall co nam trong danh sach api hanh vi cua keylloging hay khong, cu the la:blinkAddEventListener
     # Neu có api blinkAddEventListener thi kiem tra args duoc truyen vao
     # args [ "#document", "keypress"] hoac "args": [ "#document", "keydown" ] thi return True 
     # -> Extension chua hanh vi cua keylogger
@@ -240,20 +240,23 @@ def GetAllCookiesTracking(api_of_extension):
 white_list_http = ["https://fbsbx.com/ajax/bz","https://www.paypal.com/signin/client-log","https://www.amazon.com/gp/recent-history-footer/external/rhf-handler.html","https://www.paypal.com/auth/verifychallenge"]
 def NetworkRequest4xxTracking(idx):
     http_request_4xx = []
-    mycol = init_database("NETWORK")
-    my_network = mycol.find({"idx":idx})
-    for info in my_network:
-        path_file_network = info["Path"]
-        with open(path_file_network, 'r') as f:
-            entry = json.load(f)
-        entries = entry["log"]["entries"]
-        for i in entries:
-            if(i["response"]["status"] >= 400 and i["response"]["status"] < 500):
-                matches = [x for x in white_list_testcase if x in i["request"]["url"]]
-                if(len(matches)!=0):
-                    continue
-                if(i["request"]["url"] not in white_list_http):
-                    http_request_4xx.append({i["request"]["url"]:i["response"]["status"]})
+    try:
+        mycol = init_database("NETWORK")
+        my_network = mycol.find({"idx":idx})
+        for info in my_network:
+            path_file_network = info["Path"]
+            with open(path_file_network, 'r') as f:
+                entry = json.load(f)
+            entries = entry["log"]["entries"]
+            for i in entries:
+                if(i["response"]["status"] >= 400 and i["response"]["status"] < 500):
+                    matches = [x for x in white_list_testcase if x in i["request"]["url"]]
+                    if(len(matches)!=0):
+                        continue
+                    if(i["request"]["url"] not in white_list_http):
+                        http_request_4xx.append({i["request"]["url"]:i["response"]["status"]})
+    except Exception as E:
+        print("NETWORK:",idx)
     return http_request_4xx
 
 def DnsResponseTracking(idx):
@@ -349,10 +352,10 @@ def AnalyzerOnlyOneExtension(idx):
     beauty_report["get_all_cookies"] = get_all_cookies
     beauty_report["http_request_4xx"] = http_request_4xx
     beauty_report["dns_no_response"] = dns_no_response
-    col = init_database("REPORT")
+    col = init_database("REPORT_FINAL")
     col.insert(beauty_report,check_keys=False)
     print("[+] Inserted: @@@%s@@@"%(idx))
-
+    
 def AnalyzerAllExtension():
 # Doc tung report trong Database "REPORT" bang mycol.find
     malicious = 0
@@ -382,58 +385,59 @@ def AnalyzerAllExtension():
     _list_http_request_4xx = []
 
     dns_no_response = 0
-    mycol = init_database("REPORT")
+    mycol = init_database("REPORT_FINAL")
     total = mycol.estimated_document_count()
     print("[+] Total %d reports"%(total))
     for ext in mycol.find():       
         is_malicious = False
         is_suspicious = False
-        count = 0 
+        count_m = 0 
+        count_s = 0
         behavior = []
         if(len(ext["uninstall_other_extension"]) != 0):
-            count += 1
+            count_m += 1
             uninstall_other_extension +=1
             _list_uninstall_other_extension.append(ext["id"])
             behavior.append("uninstall_other_extension")
             is_malicious = True
 
         if(len(ext["prevents_extension_uninstall"]) != 0):
-            count += 1
+            count_m += 1
             prevents_extension_uninstall +=1
             _list_prevents_extension_uninstall.append(ext["id"])
             behavior.append("prevents_extension_uninstall")
             is_malicious = True
 
         if(len(ext["keylogging_functionality"]) != 0):
-            count += 1
+            count_m += 1
             keylogging_functionality +=1
             _list_keylogging_functionality.append(ext["id"])
             behavior.append("keylogging_functionality")
             is_malicious = True
 
         if(len(ext["steal_information_form"]) != 0):
-            count += 1
+            count_m += 1
             steal_information_form +=1
             _list_steal_information_form.append(ext["id"])
             behavior.append("steal_information_form")
             is_malicious = True
 
         if(len(ext["block_antivirus_site"]) != 0):
-            count += 1
+            count_m += 1
             block_antivirus_site +=1
             _list_block_antivirus_site.append(ext["id"])
             behavior.append("block_antivirus_site")
             is_malicious = True
 
         if(len(ext["deleted_response_headers"]) != 0):
-            count += 1
+            count_m += 1
             deleted_response_headers +=1
             _list_deleted_response_headers.append(ext["id"])
             behavior.append("deleted_response_headers")
             is_malicious = True
 
         if(len(ext["injects_dynamic_javascript"]) != 0):
-            count += 1
+            count_s += 1
             injects_dynamic_javascript +=1
             _list_injects_dynamic_javascript.append(ext["id"])
             behavior.append("injects_dynamic_javascript")
@@ -441,7 +445,7 @@ def AnalyzerAllExtension():
                 is_suspicious = True
 
         if(len(ext["get_all_cookies"]) != 0):
-            count += 1
+            count_s += 1
             get_all_cookies +=1
             _list_get_all_cookies.append(ext["id"])
             behavior.append("get_all_cookies")
@@ -449,7 +453,7 @@ def AnalyzerAllExtension():
                 is_suspicious = True
 
         if(len(ext["http_request_4xx"]) != 0):
-            count += 1
+            count_s += 1
             http_request_4xx +=1
             _list_http_request_4xx.append(ext["id"])
             behavior.append("http_request_4xx")
@@ -469,7 +473,7 @@ def AnalyzerAllExtension():
         else:
             clean +=1
         info["id"] = ext["id"]
-        info["count"] = count
+        info["count"] = count_m
         info["behavior"] = behavior
         datatest = info.copy()
         top_10_extension_malicious.append(datatest)
@@ -517,4 +521,7 @@ def AnalyzerAllExtension():
     json_parse = json.dumps(result, indent=4)
     open("Report_dynamic.json", "w").write(json_parse)
 if __name__ == "__main__": 
-    AnalyzerOnlyOneExtension("olpeoifdnnbgbakpddikckahaddgjapm")
+    # for idx in open(r"G:\New\Extensions\KhoaLuan_Git\extesion_monitored.txt").readlines():
+    #     idxr = idx.replace("\n","")
+    #     AnalyzerOnlyOneExtension(idxr)
+    AnalyzerAllExtension()

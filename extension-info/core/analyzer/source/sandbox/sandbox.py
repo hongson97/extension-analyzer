@@ -23,7 +23,7 @@ cwd = os.path.abspath(os.path.dirname(sys.argv[0]))
 database = cwd + r"\ExtensionDb.db"
 
 mycol_network = init_database("NETWORK")
-mycol_report = init_database("REPORT")
+mycol_report = init_database("REPORT_FINAL")
 mycol_risk = init_thesis("Risk")
 
 def ConnectDB(db):
@@ -112,7 +112,8 @@ def AnalyzerDynamic(mycol,IDX,PathExt):
         run.teardown_method('GET')  
     HoneyPage()
     def write_network_log(mycol,IDX,client):
-        network_log = cwd +"\\log\\" + IDX + ".har"       
+        network_log = cwd +"\\log\\" + IDX + ".har"
+        #network_log = r"G:\New\Extensions\KhoaLuan\source\log" +"\\"+ IDX + ".har"       
         data_store_db = {}
         data_store_db["idx"] = IDX
         data_store_db["Path"] = network_log
