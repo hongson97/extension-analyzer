@@ -53,9 +53,7 @@ class AnalyzerService {
 
             const regx = /@@@(.+)@@@/
             const value = regx.exec(stdout)[1];
-            console.log(value)
-
-
+            //console.log(value)
             //console.log(stdout)
             // Connection URL
             const url = 'mongodb://localhost:27017';
@@ -64,7 +62,7 @@ class AnalyzerService {
             try {
                 const client = await MongoClient.connect(url);
                 const db = client.db(dbName);
-                const collection_report = db.collection('REPORT');
+                const collection_report = db.collection('REPORT_FINAL');
                 const collection_dns = db.collection('DNS');
                 const collection_network = db.collection('NETWORK');
                 const outputData_report = await collection_report.findOne({ id: value });

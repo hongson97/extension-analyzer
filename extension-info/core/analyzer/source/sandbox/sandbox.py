@@ -152,14 +152,15 @@ if __name__ == "__main__":
                 AnalyzerDynamic(mycol_network,IDX,PathExt)
     
     if(sys.argv[1] == "-l"):  #
-        id_ext,name_ext = GetExtID(sys.argv[2])
+        id_ext,name_ext = GetExtID(sys.argv[2])        
+        if(checking_report(id_ext) == True):
+            print("[+] OK - @@@%s@@@" %(id_ext))
+            exit()
         IDX,PathExt = SearchByID(id_ext)[0]
-        send_real_idx(IDX)
+        send_real_idx(IDX)        
         if(IDX is None):
             print("None")
             exit()
-        if(checking_report(IDX) == True):
-            print("[+] OK - @@@%s@@@" %(IDX))
         else:
             AnalyzerDynamic(mycol_network,IDX,PathExt)
 
