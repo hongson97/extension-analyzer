@@ -109,10 +109,12 @@ class API extends Component {
     console.log(apiData)
     let behaviorNames = ['uninstall_other_extension', 'prevents_extension_uninstall', 'keylogging_functionality', 'steal_information_form', 'block_antivirus_site', 
     'deleted_response_headers', 'injects_dynamic_javascript', 'get_all_cookies', 'http_request_4xx'];
+    let behaviorsDecriptionName  = ['Uninstall other extensions', 'Prevents uninstall extension', 'Keylogging functionality', 'Steal information form', 'Block antivirus site', 
+    'Deleted response headers', 'Injects dynamic Javascript', 'Get all cookies', 'HTTP request 4xx'];
   
-    let behavior = behaviorNames.map(behaviorName=> {
+    let behavior = behaviorNames.map((behaviorName,  idx)=> {
       return {
-        name: behaviorName,
+        name: behaviorsDecriptionName[idx],
         times: this.props.analyze.result_dynamic.result.Report[behaviorName].length
       }
     })
@@ -128,7 +130,6 @@ class API extends Component {
           value: e.apiCall,
           args: e.args,
           other: e.other.webRequest 
-
 
         }
         return {
