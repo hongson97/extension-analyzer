@@ -14,12 +14,12 @@ export function sendAnalyzeRequest(extensionLink) {
                 params: {
                     link: extensionLink
                 }
-            })
+            }, { timeout: 99999999999999})
             const response2 = await axios.post(BASE_ANALYZE_API_URL_2, {
                 params: {
                     link: extensionLink
                 }
-            })
+            }, {timeout: 999999999999999})
 
             if (response.data.result)
                 dispatch(updateAnalyzeResult(response.data.result))
