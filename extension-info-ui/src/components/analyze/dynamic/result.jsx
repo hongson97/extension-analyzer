@@ -35,7 +35,7 @@ class API extends Component {
           },
           {
             Header: "Times",
-            width: 800,
+            width: 200,
             accessor: "times",
             className: "text-center"
           }
@@ -109,10 +109,12 @@ class API extends Component {
     console.log(apiData)
     let behaviorNames = ['uninstall_other_extension', 'prevents_extension_uninstall', 'keylogging_functionality', 'steal_information_form', 'block_antivirus_site', 
     'deleted_response_headers', 'injects_dynamic_javascript', 'get_all_cookies', 'http_request_4xx'];
+    let behaviorsDecriptionName  = ['Uninstall other extensions', 'Prevents uninstall extension', 'Keylogging functionality', 'Steal information form', 'Block antivirus site', 
+    'Deleted response headers', 'Injects dynamic Javascript', 'Get all cookies', 'HTTP request 4xx'];
   
-    let behavior = behaviorNames.map(behaviorName=> {
+    let behavior = behaviorNames.map((behaviorName,  idx)=> {
       return {
-        name: behaviorName,
+        name: behaviorsDecriptionName[idx],
         times: this.props.analyze.result_dynamic.result.Report[behaviorName].length
       }
     })
@@ -128,7 +130,6 @@ class API extends Component {
           value: e.apiCall,
           args: e.args,
           other: e.other.webRequest 
-
 
         }
         return {
@@ -155,7 +156,7 @@ class API extends Component {
         columns={this.state.table.columns}/>
         <br></br>
 
-      <h4> Behaviors</h4>
+      <h4>Behaviors</h4>
         <ReactTable
         showPagination={false}
         defaultPageSize={behavior.length !== 0 ? behavior.length : 5}
@@ -173,12 +174,13 @@ class API extends Component {
               </div>
             )
           }
+          console.log(behaviorData[row.original.name])
           return  (
             <div style={{padding: '20px'}}>
               <ReactTable
                 data={behaviorData[row.original.name]}
                 columns={this.state.subTable.columns}
-                defaultPageSize={behaviorData[row.original.name].length}
+                defaultPageSize={5}
               />
             </div>
           )

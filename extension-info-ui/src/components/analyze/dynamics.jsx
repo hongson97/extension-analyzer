@@ -81,6 +81,7 @@ class Dynamic extends Component {
       }
     })
     console.log(this.state.data.top_10_extension_malicious, topExtensionTbl, topApiTbl, topBehaviorTbl)
+    console.log(this.state.data)
 
     const pieChartData = {
       labels: [
@@ -137,7 +138,7 @@ class Dynamic extends Component {
           <div className="col-md-6">
             <center>
               <h3>
-                Top 10 Behavior
+                Behaviors
               </h3>
             </center>
             <ReactTable

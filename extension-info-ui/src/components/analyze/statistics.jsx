@@ -73,7 +73,6 @@ class Statistics extends Component {
     const top_api_table = this.state.data.top_api.map(i => {
       return Object.assign({}, {criteria: i[0]}, {quantity: i[1]})
     })
-
     
     const pieChartData = {
       labels: [
@@ -109,7 +108,7 @@ class Statistics extends Component {
         {/* row 1 */}
         {/* Add more tables below here */}
         <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-6">
             <center>
               <h3>Top 10 Extensions with the most permissions</h3>
             </center>
@@ -121,7 +120,7 @@ class Statistics extends Component {
               columns={this.state.id_columns}
             />
           </div>
-          <div className="col-md-4">
+          <div className="col-md-6">
             <center>
               <h3>Top 10 Extensions with the most warn permissions</h3>
             </center>
@@ -133,10 +132,15 @@ class Statistics extends Component {
               columns={this.state.id_columns}
             />
           </div>
-          <div className="col-md-4">
+
+        </div>
+
+        {/* row 2 */}
+        <div className="row">
+        <div className="col-md-6">
             <center>
               <h3>
-                Top 10 Extensions with <br></br>highest risk
+                Top 10 Extensions with the highest risk
               </h3>
             </center>
             <ReactTable
@@ -147,10 +151,6 @@ class Statistics extends Component {
               columns={this.state.id_columns}
             />
           </div>
-        </div>
-
-        {/* row 2 */}
-        <div className="row">
           <div className="col-md-6">
             <center>
               <h3>Top 10 Permissions</h3>
@@ -163,7 +163,11 @@ class Statistics extends Component {
               columns={this.state.perms_columns}
             />
           </div>
-          <div className="col-md-6">
+        </div>
+
+        {/* Row 3 */}
+        <div className="row">
+        <div className="col-md-6">
             <center>
               <h3>Top 10 Permission With Warning</h3>
             </center>
@@ -175,14 +179,10 @@ class Statistics extends Component {
               columns={this.state.perms_columns}
             />
           </div>
-        </div>
-
-        {/* Row 3 */}
-        <div className="row">
-          <div className="col-md-4">
+          <div className="col-md-6">
             <center>
               <h4>
-                Dangerous Api Average: <span>{this.state.data.api_avg}</span>
+                Dangerous API Average: <span>{this.state.data.api_avg}</span>
               </h4>
             </center>
             <ReactTable
@@ -193,6 +193,8 @@ class Statistics extends Component {
               columns={this.state.api_columns}
             />
           </div>
+          </div>
+          <div className="row">
           <div className="col-md-8">
             <Pie data={pieChartData} legend={{ position: "bottom" }} />
           </div>

@@ -47,7 +47,7 @@ class Header extends Component {
               className="btn btn-dark"
               onClick={e => {
                 var linkbox = document.getElementById("ext_link").value;
-                if (linkbox == "") {
+                if (linkbox === "") {
                   alert("Link is empty, please input an extension link!");
                   return false;
                 }
