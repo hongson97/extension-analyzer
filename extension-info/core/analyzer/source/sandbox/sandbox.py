@@ -21,7 +21,6 @@ from pathlib import Path
 
 cwd = os.path.abspath(os.path.dirname(sys.argv[0]))
 database = cwd + r"\ExtensionDb.db"
-
 mycol_network = init_database("NETWORK")
 mycol_report = init_database("REPORT_FINAL")
 mycol_risk = init_thesis("Risk")
@@ -156,7 +155,9 @@ if __name__ == "__main__":
         if(checking_report(id_ext) == True):
             print("[+] OK - @@@%s@@@" %(id_ext))
             exit()
+
         IDX,PathExt = SearchByID(id_ext)[0]
+
         send_real_idx(IDX)        
         if(IDX is None):
             print("None")

@@ -35,7 +35,7 @@ class API extends Component {
           },
           {
             Header: "Times",
-            width: 800,
+            width: 200,
             accessor: "times",
             className: "text-center"
           }
@@ -156,7 +156,7 @@ class API extends Component {
         columns={this.state.table.columns}/>
         <br></br>
 
-      <h4> Behaviors</h4>
+      <h4>Behaviors</h4>
         <ReactTable
         showPagination={false}
         defaultPageSize={behavior.length !== 0 ? behavior.length : 5}
@@ -174,12 +174,13 @@ class API extends Component {
               </div>
             )
           }
+          console.log(behaviorData[row.original.name])
           return  (
             <div style={{padding: '20px'}}>
               <ReactTable
                 data={behaviorData[row.original.name]}
                 columns={this.state.subTable.columns}
-                defaultPageSize={behaviorData[row.original.name].length}
+                defaultPageSize={5}
               />
             </div>
           )

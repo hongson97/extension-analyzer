@@ -138,7 +138,7 @@ def Crawler():
 	CreateDir(DataDir)  #
 	global tmp
 	
-	for i in range(1463, len(GroupExt)):     #Better if run from folder we want. DONE! Next, 1345 (992). Now run 4(991)
+	for i in range(1463, len(GroupExt)):     #Run from folder we want
 		# filename = i[i.find("?")+1:]
 		j = GroupExt[i]
 		print j
