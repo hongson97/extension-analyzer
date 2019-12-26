@@ -178,7 +178,7 @@ class API extends Component {
                 <ReactTable
                   data={behaviorData[behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]]}
                   columns={this.state.subTableHTTP.columns}
-                  defaultPageSize={behaviorData[row.original.name].length}
+                  defaultPageSize={behaviorData[behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]].length}
                 />
               </div>
             )
