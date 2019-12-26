@@ -14,29 +14,29 @@ class Dynamic extends Component {
       data:  dynamicReport,
       topApiCol: [
         {
-          Header: 'name',
+          Header: 'Name',
           accessor: 'name',
           className: 'text-center'
         },
         {
-          Header: 'quantity',
+          Header: 'Quantity',
           accessor: 'quantity',
           className: 'text-center'
         }
       ],
       topExtensionCol: [
         {
-          Header: 'id',
+          Header: 'ID',
           accessor: 'id',
           className: 'text-center'
         },
         {
-          Header: 'quantity',
+          Header: 'Quantity',
           accessor: 'quantity',
           className: 'text-center'
         }, 
         {
-            Header: 'behavior',
+            Header: 'Behavior',
             accessor: 'behavior',
             className: 'text-center'
         }
@@ -44,12 +44,12 @@ class Dynamic extends Component {
       ],
       TopBehaviorCol: [
         {
-          Header: 'name',
+          Header: 'Name',
           accessor: 'name',
           className: 'text-center'
         },
         {
-          Header: 'quantity',
+          Header: 'Quantity',
           accessor: 'quantity',
           className: 'text-center'
         }

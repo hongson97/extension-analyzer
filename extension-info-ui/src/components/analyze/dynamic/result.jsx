@@ -118,25 +118,32 @@ class API extends Component {
         times: this.props.analyze.result_dynamic.result.Report[behaviorName].length
       }
     })
-
+//console.log(this.props.analyze.result_dynamic.result.Report)
     let  behaviorData = {};
     behaviorNames.forEach(behaviorName => {
       let rawApiData =  this.props.analyze.result_dynamic.result.Report[behaviorName]
-      console.log(rawApiData)
+      console.log("aaaaaaaaaaaa",rawApiData)
       let myData = rawApiData.map(e => {
-        if(behaviorName !== "http_request_4xx")
-        return {
-          type: e.activityType,
-          value: e.apiCall,
-          args: e.args,
-          other: e.other.webRequest 
-
+        if (behaviorName !== "http_request_4xx") {
+          if (behaviorName === "keylogging_functionality")
+            return {
+              type: e.activityType,
+              value: e.apiCall,
+              args: e.args,
+              other: JSON.stringify( e.other)
+            };
+          return {
+            type: e.activityType,
+            value: e.apiCall,
+            args: e.args
+          };
         }
         return {
           domain: Object.keys(e)[0],
           errCode: Object.values(e)[0],
         }
       })
+     
       behaviorData = {
         ...behaviorData,
         [behaviorName] : myData,
@@ -163,11 +170,13 @@ class API extends Component {
         data={behavior}
         columns={this.state.behavior_table.columns}
         SubComponent={row => {
-          if(row.original.name === "http_request_4xx"){
+          console.log('------------idx', behaviorsDecriptionName.indexOf(row.original.name));
+          console.log('------------oriname',behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]);
+          if(row.original.name === "HTTP request 4xx"){
             return (
               <div style={{padding: '20px'}}>
                 <ReactTable
-                  data={behaviorData[row.original.name]}
+                  data={behaviorData[behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]]}
                   columns={this.state.subTableHTTP.columns}
                   defaultPageSize={behaviorData[row.original.name].length}
                 />
@@ -178,7 +187,7 @@ class API extends Component {
           return  (
             <div style={{padding: '20px'}}>
               <ReactTable
-                data={behaviorData[row.original.name]}
+                data={behaviorData[behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]]}
                 columns={this.state.subTable.columns}
                 defaultPageSize={5}
               />
