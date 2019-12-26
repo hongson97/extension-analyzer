@@ -178,7 +178,7 @@ class API extends Component {
                 <ReactTable
                   data={behaviorData[behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]]}
                   columns={this.state.subTableHTTP.columns}
-                  defaultPageSize={behaviorData[behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]].length}
+                  defaultPageSize={behaviorData[behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]].length< 10 ? behaviorData[behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]].length : 10}
                 />
               </div>
             )
@@ -189,7 +189,7 @@ class API extends Component {
               <ReactTable
                 data={behaviorData[behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]]}
                 columns={this.state.subTable.columns}
-                defaultPageSize={5}
+                defaultPageSize={behaviorData[behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]].length < 10 ? behaviorData[behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]].length : 10}
               />
             </div>
           )
