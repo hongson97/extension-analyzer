@@ -193,7 +193,7 @@
     "behavior": "Might be used to creating an HTML element node with the specified name. Malicious extensions usually use the methods to create new DOM element as well as its related attribute and then add such new element to the webpage's DOM tree to execute the payload.",
     "risk": "High risk"
   },
-  "appenChild": {
+  "appendChild": {
     "behavior": "Might used to attach unsafe element such as a malicious JavaScript file to the end of the document body",
     "risk": "High risk"
   },
