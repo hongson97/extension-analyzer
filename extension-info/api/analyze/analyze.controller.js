@@ -38,7 +38,7 @@ class AnalyzeController {
             return;
         }
         try {
-            console.log('DDD', analyzeStaticId, analyzeDynamicId)
+            console.log('Thesis - REPORT_FINAL:', analyzeStaticId, analyzeDynamicId)
             const result = await AnalyzeService.GetStatusAnalyzer(analyzeStaticId, analyzeDynamicId)
             return res.status(200).json(result)
         } catch (error) {
