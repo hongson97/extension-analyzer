@@ -122,7 +122,7 @@ class API extends Component {
 //console.log(this.props.analyze.result_dynamic.result.Report)
     let  behaviorData = {};
     behaviorNames.forEach(behaviorName => {
-      let rawApiData =  this.props.analyze.result_dynamic.result.Report[behaviorName]
+      let rawApiData =  this.props.analyze.result_dynamic.Report[behaviorName]
       let myData = rawApiData.map(e => {
         if (behaviorName !== "http_request_4xx") {
           if (behaviorName === "keylogging_functionality")
