@@ -11,6 +11,8 @@ import jsbeautifier
 from multiprocessing import Pool as ProcessPool
 import pdb
 from mongodb import * 
+from bson.objectid import ObjectId
+
 cwd = os.path.abspath(os.path.dirname(sys.argv[0]))
 database = cwd + r"\source\sandbox\ExtensionDb.db"
 DataDir = cwd +r"\Data"
@@ -334,7 +336,7 @@ def ExtractCRX(filename, path, dst_dir):
 		#print ('[*]Extracted successfully')
 		return True
 
-def ExtensionAnalyzer(collection, ext_id, root_path):
+def ExtensionAnalyzer(collection, ext_id, root_path, mongoid):
     logging.basicConfig(filename='Error_analyzer.log', level=logging.DEBUG)
 
     try:
@@ -362,9 +364,9 @@ def ExtensionAnalyzer(collection, ext_id, root_path):
 
         try:
             # final_output.
-            temp = {"id" : ext_id}
+            temp = {"id" : ext_id, 'status': True}
             temp.update(final_output)
-            collection.insert(temp, check_keys=False)
+            collection.update({'_id': ObjectId(mongoid)} ,temp, check_keys=False)
 
         except Exception as E:
             print(E)

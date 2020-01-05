@@ -97,7 +97,8 @@ class API extends Component {
   }
 
   render() {
-    const rawApiData = this.props.analyze.result_dynamic.result.Report.apis   //change this when have database
+    console.log("RESULT",this.props.analyze.result_dynamic)
+    const rawApiData = this.props.analyze.result_dynamic.Report.apis   //change this when have database
     console.log(rawApiData)
     let apiData = [];
     Object.keys(rawApiData).forEach(i => {
@@ -115,7 +116,7 @@ class API extends Component {
     let behavior = behaviorNames.map((behaviorName,  idx)=> {
       return {
         name: behaviorsDecriptionName[idx],
-        times: this.props.analyze.result_dynamic.result.Report[behaviorName].length
+        times: this.props.analyze.result_dynamic.Report[behaviorName].length
       }
     })
 //console.log(this.props.analyze.result_dynamic.result.Report)
@@ -152,7 +153,7 @@ class API extends Component {
 
     return (
       <div>
-        <h2 className="text-center">Numbers of API has called: {this.props.analyze.result_dynamic.result.Report.total_api} </h2>
+        <h2 className="text-center">Numbers of API has called: {this.props.analyze.result_dynamic.Report.total_api} </h2>
       <h4>API name</h4>
       <ReactTable
         showPagination={false}

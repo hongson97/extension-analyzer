@@ -10,6 +10,22 @@ class APICalled extends Component {
     super(props)
 
     this.state = {
+      newApiData: this.props.analyze.result_dynamic.Report.api_called.map(item => {
+        
+        let pageTitle = ''
+        if(typeof item.pageTitle !== 'undefined') pageTitle = item.pageTitle
+        let pageUrl =''
+        let other =''
+        if(typeof item.pageUrl !== 'undefined') pageUrl = item.pageUrl
+        if(typeof item.other !== 'undefined') other = JSON.stringify(item.other)
+        return {
+          ...item,
+          time: moment(item.time).format('D/M/YY H:m:s'),
+          pageTitle,
+          pageUrl,
+          other
+        }
+      }),
       table: {
         columns: [
           {
@@ -54,36 +70,38 @@ class APICalled extends Component {
   }
 
   render() {
-    const rawApiData = this.props.analyze.result_dynamic.result.Report    //change this when have database
-    console.log(rawApiData.api_called)
-    //console.log(rawApiData)
-    
-    const newApiData = rawApiData.api_called.map(item => {
+    // const rawApiData = this.props.analyze.result_dynamic.result.Report    //change this when have database
+    // console.log(rawApiData.api_called)
+    // //console.log(rawApiData)
+    // // let newApiData=[]
+    //  this.setState({newApiData: rawApiData.api_called.map(item => {
         
-        let pageTitle = ''
-        if(typeof item.pageTitle !== 'undefined') pageTitle = item.pageTitle
-        let pageUrl =''
-        let other =''
-        if(typeof item.pageUrl !== 'undefined') pageUrl = item.pageUrl
-        if(typeof item.other !== 'undefined') other = JSON.stringify(item.other)
-        return {
-          ...item,
-          time: moment(item.time).format('D/M/YY H:m:s'),
-          pageTitle,
-          pageUrl,
-          other
-        }
-      })
+    //   let pageTitle = ''
+    //   if(typeof item.pageTitle !== 'undefined') pageTitle = item.pageTitle
+    //   let pageUrl =''
+    //   let other =''
+    //   if(typeof item.pageUrl !== 'undefined') pageUrl = item.pageUrl
+    //   if(typeof item.other !== 'undefined') other = JSON.stringify(item.other)
+    //   return {
+    //     ...item,
+    //     time: moment(item.time).format('D/M/YY H:m:s'),
+    //     pageTitle,
+    //     pageUrl,
+    //     other
+    //   }
+    // })})
 
-    console.log(rawApiData.api_called)
+    console.log(this.props.analyze.result_dynamic.Report.api_called[1])
+    if(this.state.newApiData.length!==0){
     return (
       <ReactTable
         showPagination={false}
-        defaultPageSize={newApiData ? newApiData.length : 5}
-        data={newApiData}
+        defaultPageSize={this.state.newApiData ? this.state.newApiData.length : 5}
+        data={this.state.newApiData}
         columns={this.state.table.columns}
         />
     )
+    }else return <></>
   }
 
 }
