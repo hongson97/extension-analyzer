@@ -309,17 +309,22 @@ def AnalyzerOnlyOneExtension(idx, mongoId = None):
     get_all_cookies=[]
     http_request_4xx = []
     dns_no_response = []
+    is_malicious = False
+    is_suspicious = False
     for api in list_api:
         if (UninstallBehaviorTracking(api)):
             uninstall_other_extension.append(api)
+            is_malicious = True
             continue
         # detect PreventsUninstallTracking
         
         if(PreventsUninstallTracking(api)):
             prevents_extension_uninstall.append(api)
+            is_malicious = True
             continue
         if(KeyloggerTracking(api)):
             keylogging_functionality.append(api)
+            is_malicious = True
             continue
         if(StealInformationFormTracking(api)):
             all_info_behavior = []
@@ -328,21 +333,31 @@ def AnalyzerOnlyOneExtension(idx, mongoId = None):
             for api_content_script in find_activity:
                 all_info_behavior.append(api_content_script)
             steal_information_form.append(all_info_behavior)
+            is_malicious = True
             continue
         if(BlockAntiVirusSiteTracking(api)):
             block_antivirus_site.append(api)
+            is_malicious = True
             continue
         if(DeleteReponseHeaderTracking(api)):
             deleted_response_headers.append(api)
+            is_malicious = True
             continue
         if(InjectsDynamicJsTracking(api)):
             injects_dynamic_javascript.append(api)
+            if(is_malicious == False):
+                is_suspicious = True
             continue
         if(GetAllCookiesTracking(api)):
             get_all_cookies.append(api)
+            if(is_malicious == False):
+                is_suspicious = True
             continue
         
     http_request_4xx = NetworkRequest4xxTracking(idx)
+    if (len(http_request_4xx != 0)):
+        if(is_malicious == False):
+            is_suspicious = True
     dns_no_response = DnsResponseTracking(idx)
     beauty_report["uninstall_other_extension"] = uninstall_other_extension
     beauty_report["prevents_extension_uninstall"] = prevents_extension_uninstall
@@ -355,6 +370,9 @@ def AnalyzerOnlyOneExtension(idx, mongoId = None):
     beauty_report["http_request_4xx"] = http_request_4xx
     beauty_report["dns_no_response"] = dns_no_response
     beauty_report["status"] = True
+    beauty_report['is_malicious'] = is_malicious
+    beauty_report['is_suspicious'] = is_suspicious
+
     col = init_database("REPORT_FINAL")
     col.update({ '_id': ObjectId(mongoId) }, beauty_report, check_keys=False)
     print("[+] Inserted: @@@%s@@@"%(idx))
