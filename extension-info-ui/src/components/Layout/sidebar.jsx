@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import React, { Component } from "react";
 // import {Link} from 'react-router'
 import { changeViewState } from "../../actions/analyze.action";
+import Logo  from "./Logo_UIT_In.jpg"
 
 class SideBar extends Component {
   constructor(props) {
@@ -108,6 +109,21 @@ class SideBar extends Component {
           <i className="icon-code mr-1"></i> DNS
     </a>
       </li>,
+      <li key="12">
+      <div>
+        <hr />
+
+        <h6
+          className="sidebar-heading justify-content-between align-items-center text-center text-muted"
+          style={{ marginTop: "1px !important" }}
+        >
+          <span>ABOUT</span>
+        </h6>
+        <hr />
+        <li className="justify-content-between text-center font-weight-bold"> Chrome Extension Analyzer</li>
+        <img className="justify-content-between center" src={Logo} height="40" weight="40" ></img>
+      </div>
+    </li>,
     ];
 
     return (
