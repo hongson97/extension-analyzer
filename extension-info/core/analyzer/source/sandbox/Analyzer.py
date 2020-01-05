@@ -370,8 +370,12 @@ def AnalyzerOnlyOneExtension(idx, mongoId = None):
     beauty_report["http_request_4xx"] = http_request_4xx
     beauty_report["dns_no_response"] = dns_no_response
     beauty_report["status"] = True
-    beauty_report['is_malicious'] = is_malicious
-    beauty_report['is_suspicious'] = is_suspicious
+    if (is_malicious == True):
+        beauty_report['final_result'] = "malicious"
+    elif (is_suspicious == True):
+        beauty_report['final_result'] = "suspicious"
+    else:
+        beauty_report['final_result'] = "clean"
 
     col = init_database("REPORT_FINAL")
     col.update({ '_id': ObjectId(mongoId) }, beauty_report, check_keys=False)
