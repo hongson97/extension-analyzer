@@ -53,7 +53,7 @@ class DNS extends Component {
   }
 
   render() {
-    const rawApiData = this.props.analyze.result_dynamic.result.Dns    //change this when have database
+    const rawApiData = this.props.analyze.result_dynamic.Dns    //change this when have database
     console.log("rawApiData")
     console.log(rawApiData)
     const apiData = Object.keys(rawApiData).map(i => {

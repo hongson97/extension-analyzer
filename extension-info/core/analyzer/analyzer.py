@@ -9,6 +9,7 @@ def main():
     parser.add_argument("-l", "--link",help="Link to analyze",required=False)
     parser.add_argument("-i", "--id",help="ID to analyze",required=False)
     parser.add_argument("-n", "--name",help="Name of Extension",required=False)
+    parser.add_argument("-mid", "--mongoid",help="Mongo ID",required=True)
     parser.add_argument("-a", "--all",help="All",required=False)
     args = parser.parse_args()
     if args.link:
@@ -17,14 +18,14 @@ def main():
             Extdir = SearchByID(ID)
             if ("not found" not in Extdir):
                 collection = ConnectMongoDB("Analyzer")
-                ExtensionAnalyzer(collection, ID, Extdir[0][2])
+                ExtensionAnalyzer(collection, ID, Extdir[0][2], args.mongoid)
             else:
                 Extdir = DownloadAndExtractExt(ID, Name)
                 if (Extdir == "Error"):
                     print("Error when download and extract Ext")
                     return
                 collection = ConnectMongoDB("Analyzer")
-                ExtensionAnalyzer(collection, ID, Extdir)
+                ExtensionAnalyzer(collection, ID, Extdir, args.mongoid)
         print(ID)
 
     elif args.all:

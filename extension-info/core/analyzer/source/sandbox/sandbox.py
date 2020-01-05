@@ -17,7 +17,7 @@ from Analyzer import *
 import sqlite3
 import requests
 from pathlib import Path
-
+from bson.objectid import ObjectId
 
 cwd = os.path.abspath(os.path.dirname(sys.argv[0]))
 database = cwd + r"\ExtensionDb.db"
@@ -65,7 +65,7 @@ def SearchByID(id):
     else:
         return result
 
-def AnalyzerDynamic(mycol,IDX,PathExt):
+def AnalyzerDynamic(mycol,IDX,PathExt, mongoId = None):
     proxy = ProxyManger()
     server = proxy.start_server()
     client = proxy.start_client()
@@ -131,7 +131,7 @@ def AnalyzerDynamic(mycol,IDX,PathExt):
     p.terminate()    
     server.stop()
     #Analyssssssssssss
-    AnalyzerOnlyOneExtension(IDX)
+    AnalyzerOnlyOneExtension(IDX, mongoId)
     return True
 
 def checking_report(idx):
@@ -163,7 +163,7 @@ if __name__ == "__main__":
             print("None")
             exit()
         else:
-            AnalyzerDynamic(mycol_network,IDX,PathExt)
+            AnalyzerDynamic(mycol_network,IDX,PathExt, sys.argv[4])
 
     if(sys.argv[1] == "-m"):  #
         print("[+]Starting...")

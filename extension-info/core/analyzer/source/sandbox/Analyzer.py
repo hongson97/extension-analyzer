@@ -6,6 +6,8 @@ from collections import Counter
 from operator import itemgetter
 import os	
 import sys	
+from bson.objectid import ObjectId
+
 cwd = os.path.abspath(os.path.dirname(sys.argv[0]))	
 api_file = cwd +r"\api.json"	
 path_white_list_dns = cwd + r"\white_list_dns.json"
@@ -278,7 +280,7 @@ def DnsResponseTracking(idx):
             dns_no_response.append(dns_record)
     return dns_no_response  
 
-def AnalyzerOnlyOneExtension(idx):
+def AnalyzerOnlyOneExtension(idx, mongoId = None):
     total_call = 0
     count_api = {}
     api_called = []
@@ -352,8 +354,9 @@ def AnalyzerOnlyOneExtension(idx):
     beauty_report["get_all_cookies"] = get_all_cookies
     beauty_report["http_request_4xx"] = http_request_4xx
     beauty_report["dns_no_response"] = dns_no_response
+    beauty_report["status"] = True
     col = init_database("REPORT_FINAL")
-    col.insert(beauty_report,check_keys=False)
+    col.update({ '_id': ObjectId(mongoId) }, beauty_report, check_keys=False)
     print("[+] Inserted: @@@%s@@@"%(idx))
     
 def AnalyzerAllExtension():
@@ -472,8 +475,11 @@ def AnalyzerAllExtension():
             suspicious +=1
         else:
             clean +=1
+
+        count_all = count_m + count_s
         info["id"] = ext["id"]
-        info["count"] = count_m
+        info["count"] = count_all
+        info["count_m"] = count_m
         info["behavior"] = behavior
         datatest = info.copy()
         top_10_extension_malicious.append(datatest)
@@ -503,7 +509,7 @@ def AnalyzerAllExtension():
     print("[+] Top 10 Api Called:")
     print(top_10_api_called_sorted)
     print("[*] Top 10 Extension:")
-    top_10_extension_malicious_sorted = sorted(top_10_extension_malicious, key = lambda i: i['count'],reverse=True)[:10]
+    top_10_extension_malicious_sorted = sorted(sorted(top_10_extension_malicious, key = lambda i: i['count'],reverse=True),key = lambda i: i['count_m'],reverse=True)[:10]
     print(top_10_extension_malicious_sorted)
     print("[*] Top behavior:")
     top_behavior_sorted = sorted(top_behavior,key = lambda i: i['count'],reverse=True)
