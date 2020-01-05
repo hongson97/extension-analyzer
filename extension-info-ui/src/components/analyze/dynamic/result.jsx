@@ -153,49 +153,100 @@ class API extends Component {
 
     return (
       <div>
-        <h2 className="text-center">Numbers of API has called: {this.props.analyze.result_dynamic.Report.total_api} </h2>
-      <h4>API name</h4>
-      <ReactTable
-        showPagination={false}
-        defaultPageSize={apiData ? apiData.length : 5}
-        data={apiData}
-        columns={this.state.table.columns}/>
+        <div>
+          <h2 className="text-center bold ">
+            Assignment: {this.props.analyze.result_dynamic.Report.final_result}
+          </h2>
+        </div>
+        <h2 className="text-center mt-10"> 
+          Numbers of API has called:{" "}
+          {this.props.analyze.result_dynamic.Report.total_api}{" "}
+        </h2>
+        <h4>API name</h4>
+        <ReactTable
+          showPagination={false}
+          defaultPageSize={apiData ? apiData.length : 5}
+          data={apiData}
+          columns={this.state.table.columns}
+        />
         <br></br>
 
-      <h4>Behaviors</h4>
+        <h4>Behaviors</h4>
         <ReactTable
-        showPagination={false}
-        defaultPageSize={behavior.length !== 0 ? behavior.length : 5}
-        data={behavior}
-        columns={this.state.behavior_table.columns}
-        SubComponent={row => {
-          console.log('------------idx', behaviorsDecriptionName.indexOf(row.original.name));
-          console.log('------------oriname',behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]);
-          if(row.original.name === "HTTP request 4xx"){
+          showPagination={false}
+          defaultPageSize={behavior.length !== 0 ? behavior.length : 5}
+          data={behavior}
+          columns={this.state.behavior_table.columns}
+          SubComponent={row => {
+            console.log(
+              "------------idx",
+              behaviorsDecriptionName.indexOf(row.original.name)
+            );
+            console.log(
+              "------------oriname",
+              behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]
+            );
+            if (row.original.name === "HTTP request 4xx") {
+              return (
+                <div style={{ padding: "20px" }}>
+                  <ReactTable
+                    data={
+                      behaviorData[
+                        behaviorNames[
+                          behaviorsDecriptionName.indexOf(row.original.name)
+                        ]
+                      ]
+                    }
+                    columns={this.state.subTableHTTP.columns}
+                    defaultPageSize={
+                      behaviorData[
+                        behaviorNames[
+                          behaviorsDecriptionName.indexOf(row.original.name)
+                        ]
+                      ].length < 10
+                        ? behaviorData[
+                            behaviorNames[
+                              behaviorsDecriptionName.indexOf(row.original.name)
+                            ]
+                          ].length
+                        : 10
+                    }
+                  />
+                </div>
+              );
+            }
+            console.log(behaviorData[row.original.name]);
             return (
-              <div style={{padding: '20px'}}>
+              <div style={{ padding: "20px" }}>
                 <ReactTable
-                  data={behaviorData[behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]]}
-                  columns={this.state.subTableHTTP.columns}
-                  defaultPageSize={behaviorData[behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]].length< 10 ? behaviorData[behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]].length : 10}
+                  data={
+                    behaviorData[
+                      behaviorNames[
+                        behaviorsDecriptionName.indexOf(row.original.name)
+                      ]
+                    ]
+                  }
+                  columns={this.state.subTable.columns}
+                  defaultPageSize={
+                    behaviorData[
+                      behaviorNames[
+                        behaviorsDecriptionName.indexOf(row.original.name)
+                      ]
+                    ].length < 10
+                      ? behaviorData[
+                          behaviorNames[
+                            behaviorsDecriptionName.indexOf(row.original.name)
+                          ]
+                        ].length
+                      : 10
+                  }
                 />
               </div>
-            )
-          }
-          console.log(behaviorData[row.original.name])
-          return  (
-            <div style={{padding: '20px'}}>
-              <ReactTable
-                data={behaviorData[behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]]}
-                columns={this.state.subTable.columns}
-                defaultPageSize={behaviorData[behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]].length < 10 ? behaviorData[behaviorNames[behaviorsDecriptionName.indexOf(row.original.name)]].length : 10}
-              />
-            </div>
-          )
-        }}
+            );
+          }}
         />
-        </div>
-    )
+      </div>
+    );
   }
 }
 const mapStateToProps = state => ({
