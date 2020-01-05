@@ -355,7 +355,7 @@ def AnalyzerOnlyOneExtension(idx, mongoId = None):
             continue
         
     http_request_4xx = NetworkRequest4xxTracking(idx)
-    if (len(http_request_4xx != 0)):
+    if (len(http_request_4xx) != 0):
         if(is_malicious == False):
             is_suspicious = True
     dns_no_response = DnsResponseTracking(idx)
