@@ -195,8 +195,8 @@ class Statistics extends Component {
           </div>
           </div>
           <div className="row">
-          <div className="col-md-8">
-            <Pie data={pieChartData} legend={{ position: "bottom" }} />
+          <div className="col-md-12 mw-50" >
+            <Pie data={pieChartData} legend={{ position: "bottom" }}  width={80} height={50} />
           </div>
         </div>
         <div className="row">
