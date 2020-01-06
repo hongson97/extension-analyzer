@@ -96,6 +96,19 @@ class API extends Component {
     };
   }
 
+ getBackgroundColor = (conditions) =>
+  {
+    switch (conditions) {
+      case "Malicious":
+        return "#fa675c";
+      case "Suspicious":
+        return "#fad05c";
+      case "Clean":
+        return "#92fcaf";
+        
+    }
+  } 
+  
   render() {
     console.log("RESULT",this.props.analyze.result_dynamic)
     const rawApiData = this.props.analyze.result_dynamic.Report.apis   //change this when have database
@@ -150,16 +163,19 @@ class API extends Component {
 
       }
     })
-
-    return (
+    // style={{background: "orange"}} className={`text-center bold  ${this.props.analyze.result_dynamic.Report.final_result == "Malicious" ? ' text-light ' : 'bg-info'}`}
+ 
+    
+  return (
       <div>
-        <div>
-          <h2 className="text-center bold ">
-            Assignment: {this.props.analyze.result_dynamic.Report.final_result}
+        <div className={`text-center bold border text-white `} style={{background: this.getBackgroundColor(this.props.analyze.result_dynamic.Report.final_result)}} id="assessment">
+          <h2>ASSESSMENT: 
+          <div> {this.props.analyze.result_dynamic.Report.final_result}
+          </div>
           </h2>
         </div>
-        <h2 className="text-center mt-10"> 
-          Numbers of API has called:{" "}
+        <h2 className="text-center mt-10 m-4 "> 
+          Numbers of API has called: {" "}
           {this.props.analyze.result_dynamic.Report.total_api}{" "}
         </h2>
         <h4>API name</h4>

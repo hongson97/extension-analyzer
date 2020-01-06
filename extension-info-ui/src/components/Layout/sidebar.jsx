@@ -59,7 +59,7 @@ class SideBar extends Component {
       <li key="5" style={{ cursor: 'pointer' }} className="nav-item" onClick={() => this.handleOnChangeView(3)}>
         <a className="nav-link">
           {" "}
-          <i className="icon-code mr-1"></i> Content Script
+          <i className="icon-code mr-1"></i> Content Scripts
         </a>
       </li>,
       <li key="6" style={{ cursor: 'pointer' }} className="nav-item" onClick={() => this.handleOnChangeView(4)}>
@@ -97,12 +97,6 @@ class SideBar extends Component {
           <i className="icon-shield-notice mr-1"></i> API Calls
       </a>
       </li>,
-      // <li key="10" style={{ cursor: 'pointer' }} className="nav-item" onClick={() => this.handleOnChangeView(8)}>
-      //   <a className="nav-link">
-      //     {" "}
-      //     <i className="icon-code mr-1"></i> Network
-      // </a>
-      // </li>,
       <li key="11" style={{ cursor: 'pointer' }} className="nav-item" onClick={() => this.handleOnChangeView(9)}>
         <a className="nav-link">
           {" "}
