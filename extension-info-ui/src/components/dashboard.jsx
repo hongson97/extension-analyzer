@@ -28,7 +28,7 @@ class Dashboard extends Component {
               </div>
             </div>
             <div className="text-center">
-              <h3>You need to calm down. Just wait for a second ;)</h3>
+              <h3>You need to calm down. Just wait for a moment!</h3>
             </div>
           </div>
         );
