@@ -101,7 +101,12 @@ class APICalled extends Component {
         columns={this.state.table.columns}
         />
     )
-    }else return <></>
+    }else 
+    return (
+      <div className="text-center">
+        <h1>This extension does not have any API called</h1>
+      </div>
+    );
   }
 
 }

@@ -41,7 +41,7 @@ class ContentScript extends Component {
       else 
       return (
         <div className="text-center">
-          <h1>This extension does not have Content Script</h1>
+          <h1>This extension does not have Content Scripts</h1>
         </div>
       );
   }
