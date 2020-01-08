@@ -116,7 +116,7 @@ def parse_dnspkt(idx,pkt):
                     rdata = dnsrr.rdata
                     if(type(rdata) is bytes):
                         rdata = rdata.decode("ascii")
-                        res["resolver"]["CNAME"].append(str(rdata))
+                        res["resolver"]["CNAME"].append(str(rdata)[:-1])
                     else:
                         res["resolver"]["IP"].append(str(rdata))
                 try:
