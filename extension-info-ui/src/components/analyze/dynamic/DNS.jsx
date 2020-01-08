@@ -12,7 +12,7 @@ class DNS extends Component {
       table: {
         columns: [
           {
-            Header: 'Order',
+            Header: 'No.',
             maxWidth: 100,
             accessor:"api"
           },

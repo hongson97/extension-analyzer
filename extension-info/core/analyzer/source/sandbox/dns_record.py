@@ -112,7 +112,7 @@ def parse_dnspkt(idx,pkt):
                     dnsrr = dns.an[i]
                     rrname = dnsrr.rrname.decode("ascii")
                     if(i == 0):
-                        res["resolver"]["domain"] = rrname
+                        res["resolver"]["domain"] = rrname[:-1]
                     rdata = dnsrr.rdata
                     if(type(rdata) is bytes):
                         rdata = rdata.decode("ascii")
