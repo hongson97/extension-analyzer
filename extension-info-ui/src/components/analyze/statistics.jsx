@@ -84,7 +84,7 @@ class Statistics extends Component {
       ],
       datasets: [
         {
-          data: [9407, 11704, 111812, 70263, 77146],
+          data: [this.state.data.above_50, this.state.data.above_30, this.state.data.above_15, this.state.data.below_15, this.state.data.etc],
           backgroundColor: [
             '#FF6384',
             '#36A2EB',
