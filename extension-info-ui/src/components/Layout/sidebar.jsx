@@ -115,7 +115,8 @@ class SideBar extends Component {
         </h6>
         <hr />
         <li className="justify-content-between text-center font-weight-bold"> Chrome Extension Analyzer</li>
-        <img className="justify-content-between center" src={Logo} height="40" weight="40" ></img>
+        {" "}
+        <img className="rounded mx-auto d-block" src={Logo} height="200" weight="200" ></img>
       </div>
     </li>,
     ];
