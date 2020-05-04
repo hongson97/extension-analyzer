@@ -1,4 +1,4 @@
-# dynamic-extension
+# Sandbox ChromeExtension
 
 Đổi đường dẫn folder api.log trong *KhoaLuan/source/web_api/webapi.py*
 
