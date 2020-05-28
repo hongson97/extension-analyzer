@@ -1,7 +1,7 @@
 # extension-analyzer
 
 The tool that helps users submit and analyze Google Chrome extensions and identify malicious
-extensions. The tool was built to combine both static and dynamic analysis, giving it the most
+extensions. This was built to combine both static and dynamic analysis, giving it the most
 accurate results
 
 # Requirement
