@@ -23,7 +23,7 @@ Make sure:
 
 1. Install extension monitor in Google Chrome browser.Drag and drop folder: 
 
-`extension-info\core\analyzer\source\extension_Monitor to chrome://extension`
+`extension-info\core\analyzer\source\extension_Monitor` to `chrome://extension`
 
 2. Running web-api server to listen request from extension
 
