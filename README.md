@@ -1,18 +1,21 @@
 # extension-analyzer
-Dynamic Analyzer Chrome Extensions
 
+The tool that helps users submit and analyze Google Chrome extensions and identify malicious
+extensions. The tool was built to combine both static and dynamic analysis, giving it the most
+accurate results
 
 # Requirement
 - Winpcap
-- java 
+- Java 
 - Nodejs
 - Python3
 
 
 # Install
 Make sure:
-- Add certificate of Browsermod to Certificate store. Path of certficate: extension-info\core\analyzer\source\sandbox\proxy\browsermob-proxy-2.1.4\ssl-support
-- Version Google Chrome browser math chromedriver in extension-info\core\analyzer\source\sandbox\driver\chromedriver.exe
+- Add certificate of Browsermod to Certificate store. Path of certficate `extension-info\core\analyzer\source\sandbox\proxy\browsermob-proxy-2.1.4\ssl-support`
+
+- Version Google Chrome browser math chromedriver in `extension-info\core\analyzer\source\sandbox\driver\chromedriver.exe`
 
 1. Install extension monitor in Google Chrome browser
 Drag and drop folder : extension-info\core\analyzer\source\extension_Monitor to chrome://extension
@@ -35,4 +38,3 @@ npm install
 node app.js
 ```
 
-4.
