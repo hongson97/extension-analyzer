@@ -1,0 +1,9 @@
+pymongo
+requests
+jsbeautifier
+bson
+flask
+simplejson
+selenium
+pytest
+browsermob-proxy
