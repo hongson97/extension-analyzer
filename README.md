@@ -48,3 +48,4 @@ npm install
 node app.js
 ```
 
+4. Go *localhost:3000* to submit sample
