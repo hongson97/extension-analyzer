@@ -48,7 +48,7 @@ python webapi.py
 cd extension-analyzer-master\extension-info-ui
 npm install
 npm start
-cd C:\Users\CoreMember\Downloads\extension-analyzer-master\extension-info
+cd extension-analyzer-master\extension-info
 npm install
 node app.js
 ```
