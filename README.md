@@ -14,13 +14,16 @@ accurate results
 # Install
 Make sure:
 - Add certificate of Browsermod to Certificate store. Path of certficate:
+
 `extension-info\core\analyzer\source\sandbox\proxy\browsermob-proxy-2.1.4\ssl-support`
 
 - Version Google Chrome browser math chromedriver in:
+
 `extension-info\core\analyzer\source\sandbox\driver\chromedriver.exe`
 
-1. Install extension monitor in Google Chrome browser
-Drag and drop folder : extension-info\core\analyzer\source\extension_Monitor to chrome://extension
+1. Install extension monitor in Google Chrome browser.Drag and drop folder: 
+
+`extension-info\core\analyzer\source\extension_Monitor to chrome://extension`
 
 2. Running web-api server to listen request from extension
 
