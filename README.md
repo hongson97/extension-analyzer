@@ -17,7 +17,12 @@ Demo: https://youtu.be/eBFQa7ilJ1I
 
 
 # Install
+
 Make sure:
+
+```sh
+pip install -r requirements.txt
+```
 - Add certificate of Browsermod to Certificate store. Path of certficate:
 
 `extension-info\core\analyzer\source\sandbox\proxy\browsermob-proxy-2.1.4\ssl-support`
@@ -49,3 +54,5 @@ node app.js
 ```
 
 4. Go *localhost:3000* to submit sample
+
+Contact: hongson.uit@gmail.com
