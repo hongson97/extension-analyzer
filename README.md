@@ -4,6 +4,11 @@ The tool that helps users submit and analyze Google Chrome extensions and identi
 extensions. This was built to combine both static and dynamic analysis, giving it the most
 accurate results
 
+![Image](https://i.ibb.co/TTPcqv3/Capture.png)
+
+Demo: https://youtu.be/eBFQa7ilJ1I
+
+
 # Requirement
 - Winpcap
 - Java 
